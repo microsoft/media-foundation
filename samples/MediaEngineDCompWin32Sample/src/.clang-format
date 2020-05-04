@@ -1,0 +1,36 @@
+# Style based on Cpp Core Guidelines
+ColumnLimit: 140
+IndentWidth: 4
+Language: Cpp
+AllowShortIfStatementsOnASingleLine: false
+UseTab: Never
+SpacesInSquareBrackets: false
+SpacesInParentheses: false
+SpacesInContainerLiterals: false
+SpacesInCStyleCastParentheses: false
+SpacesInAngles: false
+SpaceInEmptyParentheses: false
+SpaceBeforeParens: Never
+SortIncludes: false
+ReflowComments: true
+PointerAlignment: Left
+AlignAfterOpenBracket: Align
+MaxEmptyLinesToKeep: 1
+BreakBeforeBraces: Custom
+BraceWrapping: 
+    AfterClass: true
+    AfterControlStatement: true
+    AfterEnum: true
+    AfterFunction: true
+    AfterNamespace: true
+    AfterStruct: true
+    AfterUnion: true
+    BeforeCatch: true
+    BeforeElse: true
+    IndentBraces: false
+    SplitEmptyFunction: true
+    SplitEmptyRecord: true
+    SplitEmptyNamespace: true
+IndentCaseLabels: true
+NamespaceIndentation: Inner
+
