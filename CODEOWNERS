@@ -1,6 +1,6 @@
 # These owners will be the default owners for everything in
 # the repo. Takes precedence unless a new rule is defined in the future.
 # Rules are applied in the order they appear in this file.
-* @asepkows @kumraj @DavidS-msft @isuru-c-p @brbeec @evzien @mattrwoz
+* @microsoft/media-foundation
 
 # Future rules go here and can take precedence over the above rule.
