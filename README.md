@@ -28,7 +28,7 @@ A collection of Microsoft Media Foundation sample apps along with tooling and do
 
     [![GPUView Screenshot](./images/gpuview_small.png)](./images/gpuview.png)
 
-3. [TopoEdit](https://github.com/microsoft/media-foundation/pull/11) - A visual tool for building and testing Media Foundation topologies.
+3. [TopoEdit](https://docs.microsoft.com/en-us/windows/win32/medfound/topoedit) - A visual tool for building and testing Media Foundation topologies.
 
     [![TopoEdit Screenshot](./images/topo_small.png)](./images/topo.png)
 
