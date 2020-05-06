@@ -1,5 +1,5 @@
 ## What is this repo?
-A collection of Microsoft Media Foundation sample apps along with tooling and documentation. Our goal is to share code samples, documentation, our favorite tools, and tips and tricks for trobleshooting Media Foundation issues. 
+A collection of Microsoft Media Foundation sample apps along with tooling and documentation. Our goal is to share code samples, documentation, our favorite tools, and tips and tricks for troubleshooting Media Foundation issues. 
 
 ## Samples
 - [MediaEngineUWP](https://github.com/microsoft/media-foundation/tree/master/samples/MediaEngineUWPSample) - A sample UWP C++/WinRT application which demonstrates media playback using the MediaFoundation MediaEngine API and the WinRT composition APIs.
@@ -12,7 +12,7 @@ A collection of Microsoft Media Foundation sample apps along with tooling and do
 
 ## Tracing and Debugging
 - [Capturing Media Foundation Traces](https://docs.microsoft.com/en-us/windows/win32/medfound/using-mftrace#interpreting-the-trace-results) 
-- [Identyfying Video Rendering Related Issues](./tracing/README.MD)
+- [Identifying Video Rendering Related Issues](./performanceTracing/README.MD)
 
 ## Microsoft Tools
 1. [Media Experience Analyzer]() (MXA) - An advanced analysis tool used by Media experts to analyze Media Foundation performance traces.
