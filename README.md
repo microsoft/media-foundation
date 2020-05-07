@@ -12,7 +12,7 @@ A collection of Microsoft Media Foundation sample apps along with tooling and do
 
 ## Tracing and Debugging
 - [Capturing Media Foundation Traces](https://docs.microsoft.com/en-us/windows/win32/medfound/using-mftrace#interpreting-the-trace-results) 
-- [Identifying Video Rendering Related Issues](./performanceTracing/README.MD)
+- [Identifying Video Rendering Related Issues](./performanceTracing/README.md)
 
 ## Microsoft Tools
 1. [Media Experience Analyzer]() (MXA) - An advanced analysis tool used by Media experts to analyze Media Foundation performance traces.
