@@ -3,6 +3,7 @@ A collection of Microsoft Media Foundation sample apps along with tooling and do
 
 ## Samples
 - [MediaEngineUWP](https://github.com/microsoft/media-foundation/tree/master/samples/MediaEngineUWPSample) - A sample UWP C++/WinRT application which demonstrates media playback using the MediaFoundation MediaEngine API and the WinRT composition APIs.
+- [MediaEngineEMEUWP](https://github.com/microsoft/media-foundation/tree/master/samples/MediaEngineEMEUWPSample) - A sample UWP application written in C++ which demonstrates protected Playready EME media playback using the MediaFoundation MediaEngine API and the WinRT composition APIs.
 - [MediaEngineDCompWin32Sample](https://github.com/microsoft/media-foundation/tree/master/samples/MediaEngineDCompWin32Sample) - A sample native C++ Win32 application which demonstrates media playback using the MediaFoundation MediaEngine API and the DirectComposition API.
 
 ## Documentation
