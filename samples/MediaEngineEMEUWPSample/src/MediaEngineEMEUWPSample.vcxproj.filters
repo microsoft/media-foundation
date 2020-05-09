@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="App.cpp" />
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="media\MediaEngineExtension.cpp">
+      <Filter>media</Filter>
+    </ClCompile>
+    <ClCompile Include="media\MediaEngineWrapper.cpp">
+      <Filter>media</Filter>
+    </ClCompile>
+    <ClCompile Include="media\CdmMediaSource.cpp">
+      <Filter>media</Filter>
+    </ClCompile>
+    <ClCompile Include="media\MediaEngineProtectionManager.cpp">
+      <Filter>media</Filter>
+    </ClCompile>
+    <ClCompile Include="media\eme\EmeFactory.cpp">
+      <Filter>media\eme</Filter>
+    </ClCompile>
+    <ClCompile Include="media\eme\MediaKeySystemAccess.cpp">
+      <Filter>media\eme</Filter>
+    </ClCompile>
+    <ClCompile Include="media\eme\MediaKeySystemConfiguration.cpp">
+      <Filter>media\eme</Filter>
+    </ClCompile>
+    <ClCompile Include="media\eme\MediaKeys.cpp">
+      <Filter>media\eme</Filter>
+    </ClCompile>
+    <ClCompile Include="media\eme\MediaKeySession.cpp">
+      <Filter>media\eme</Filter>
+    </ClCompile>
+    <ClCompile Include="media\eme\CdmConfigurationProperties.cpp">
+      <Filter>media\eme</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="media\MediaEngineExtension.h">
+      <Filter>media</Filter>
+    </ClInclude>
+    <ClInclude Include="media\MediaEngineWrapper.h">
+      <Filter>media</Filter>
+    </ClInclude>
+    <ClInclude Include="media\MediaFoundationHelpers.h">
+      <Filter>media</Filter>
+    </ClInclude>
+    <ClInclude Include="media\CdmMediaSource.h">
+      <Filter>media</Filter>
+    </ClInclude>
+    <ClInclude Include="media\MediaEngineProtectionManager.h">
+      <Filter>media</Filter>
+    </ClInclude>
+    <ClInclude Include="media\MediaEngineProtectedContentInterfaces.h">
+      <Filter>media</Filter>
+    </ClInclude>
+    <ClInclude Include="media\eme\EmeFactory.h">
+      <Filter>media\eme</Filter>
+    </ClInclude>
+    <ClInclude Include="media\eme\MediaKeySystemAccess.h">
+      <Filter>media\eme</Filter>
+    </ClInclude>
+    <ClInclude Include="media\eme\MediaKeySystemConfiguration.h">
+      <Filter>media\eme</Filter>
+    </ClInclude>
+    <ClInclude Include="media\eme\MediaKeys.h">
+      <Filter>media\eme</Filter>
+    </ClInclude>
+    <ClInclude Include="media\eme\MediaKeySession.h">
+      <Filter>media\eme</Filter>
+    </ClInclude>
+    <ClInclude Include="media\eme\CdmConfigurationProperties.h">
+      <Filter>media\eme</Filter>
+    </ClInclude>
+    <ClInclude Include="TestContent.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{db9086fe-bacc-4437-8272-1aa6642082db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="media">
+      <UniqueIdentifier>{20c75183-4ae4-419e-b2dc-71249e49cd33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="media\eme">
+      <UniqueIdentifier>{d6c716f0-e391-4f9d-a61c-fb8a92990fbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gsl">
+      <UniqueIdentifier>{60af7b67-ddc3-4d88-a45c-5fe6bfc20436}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PropertySheet.props" />
+    <None Include="packages.config" />
+    <None Include="gsl\gsl_assert">
+      <Filter>gsl</Filter>
+    </None>
+    <None Include="gsl\gsl_byte">
+      <Filter>gsl</Filter>
+    </None>
+    <None Include="gsl\span">
+      <Filter>gsl</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -6,7 +6,8 @@ resources:
 variables:
 #  SamplesBin: SamplesBin
 #  WINDOWS_WINMD: C:\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd
-  WindowsTargetPlatformVersion: 10.0.18362.0
+  WindowsTargetPlatformVersion: 10.0.19041.0
+#  For 19H1, WindowsTargetPlatformVersion: 10.0.18362.0
 
 strategy:
   maxParallel: 8
@@ -83,6 +84,19 @@ steps:
     condition: succeededOrFailed()
 
   - task: VSBuild@1
+    displayName: 'Build MediaEngineEMEUWP Sample'
+    inputs:
+      solution: samples/MediaEngineEMEUWPSample/src/MediaEngineEMEUWPSample.sln
+      vsVersion: 16.0
+      msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\MediaEngineEMEUWP\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
+      platform: '$(BuildPlatform)'
+      configuration: '$(BuildConfiguration)'
+      clean: true
+      msbuildArchitecture: x64
+      createLogFile: true
+    condition: succeededOrFailed()
+
+  - task: VSBuild@1
     displayName: 'Build MediaEngineDCompWin32 Sample'
     inputs:
       solution: samples/MediaEngineDCompWin32Sample/src/MediaEngineDCompWin32Sample.sln
@@ -100,8 +114,9 @@ steps:
       targetFolder: '$(Build.ArtifactStagingDirectory)\$(BuildPlatform)\$(BuildConfiguration)\'
       sourceFolder: '$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\'
       Contents: |
-        **\MediaEngineUWP\**  
-        **\MediaEngineDCompWin32Sample\**    
+        **\MediaEngineUWP\**
+        **\MediaEngineDCompWin32Sample\**
+        **\MediaEngineEMEUWP\**  
     condition: succeededOrFailed()
 
   - task: PublishBuildArtifacts@1
