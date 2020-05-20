@@ -127,11 +127,7 @@
         <Keyword Value="0xffff"/>
       </Keywords>
     </EventProvider>
-    <EventProvider Id="EventProvider_Microsoft-Windows-Win32k" Name="8c416c79-d49b-4f01-a467-e56d3aa8234c" Level="0" NonPagedMemory="true">
-      <Keywords>
-        <Keyword Value="0x2e2000"/>
-      </Keywords>
-    </EventProvider>
+    <EventProvider Id="EventProvider_Microsoft-Windows-Win32k" Name="8c416c79-d49b-4f01-a467-e56d3aa8234c"/>
     <EventProvider Id="EventProvider_D3D11" Name="db6f6ddb-ac77-4e88-8253-819df9bbf140" Level="6">
       <Keywords>
         <Keyword Value="0xffffffffffffffff"/>
