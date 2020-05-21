@@ -379,9 +379,6 @@
       </Keywords>
     </EventProvider>
 
-    <EventProvider Id="EventProvider_Intel_DisplayBacklight" Name="6381f857-7661-4b04-9521-288319e75f12" />
-
-
     <!-- Profiles -->
     <Profile Id="MediaPerformance.Verbose.File" LoggingMode="File" Name="MediaPerformance" DetailLevel="Verbose" Description="WindowsXRay FULL_TH_WPP Power and Performance">
       <ProblemCategories>
@@ -488,8 +485,7 @@
             <EventProviderId Value="EventProvider_CALLSTACK_TELEMETRY_PROVIDER" />
             <EventProviderId Value="EventProvider_Microsoft-JScript" />
             <EventProviderId Value="EventProvider_Microsoft-Windows-App-Browser" />
-            <EventProviderId Value="EventProvider_Microsoft-Web-Platform" />
-            <EventProviderId Value="EventProvider_Intel_DisplayBacklight" />		
+            <EventProviderId Value="EventProvider_Microsoft-Web-Platform" />	
           </EventProviders>
         </EventCollectorId>
       </Collectors>
