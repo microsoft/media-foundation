@@ -127,11 +127,7 @@
         <Keyword Value="0xffff"/>
       </Keywords>
     </EventProvider>
-    <EventProvider Id="EventProvider_Microsoft-Windows-Win32k" Name="8c416c79-d49b-4f01-a467-e56d3aa8234c" Level="0" NonPagedMemory="true">
-      <Keywords>
-        <Keyword Value="0x2e2000"/>
-      </Keywords>
-    </EventProvider>
+    <EventProvider Id="EventProvider_Microsoft-Windows-Win32k" Name="8c416c79-d49b-4f01-a467-e56d3aa8234c"/>
     <EventProvider Id="EventProvider_D3D11" Name="db6f6ddb-ac77-4e88-8253-819df9bbf140" Level="6">
       <Keywords>
         <Keyword Value="0xffffffffffffffff"/>
@@ -383,9 +379,6 @@
       </Keywords>
     </EventProvider>
 
-    <EventProvider Id="EventProvider_Intel_DisplayBacklight" Name="6381f857-7661-4b04-9521-288319e75f12" />
-
-
     <!-- Profiles -->
     <Profile Id="MediaPerformance.Verbose.File" LoggingMode="File" Name="MediaPerformance" DetailLevel="Verbose" Description="WindowsXRay FULL_TH_WPP Power and Performance">
       <ProblemCategories>
@@ -492,8 +485,7 @@
             <EventProviderId Value="EventProvider_CALLSTACK_TELEMETRY_PROVIDER" />
             <EventProviderId Value="EventProvider_Microsoft-JScript" />
             <EventProviderId Value="EventProvider_Microsoft-Windows-App-Browser" />
-            <EventProviderId Value="EventProvider_Microsoft-Web-Platform" />
-            <EventProviderId Value="EventProvider_Intel_DisplayBacklight" />		
+            <EventProviderId Value="EventProvider_Microsoft-Web-Platform" />	
           </EventProviders>
         </EventCollectorId>
       </Collectors>
