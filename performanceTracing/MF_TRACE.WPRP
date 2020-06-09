@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone='yes'?>
 <!-- Copyright (c) Microsoft Corporation. -->
 <!-- Licensed under the MIT License. -->
-<?xml version="1.0" encoding="utf-8" standalone='yes'?>
 
 <WindowsPerformanceRecorder Version="1.0" Author="Media Team" Team="Media Performance Team" Comments="Test" Company="Microsoft Corporation" Copyright="Microsoft Corporation" Tag="Media">
   <Profiles>
