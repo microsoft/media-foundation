@@ -408,6 +408,7 @@
             <EventProviderId Value="EventProvider_Microsoft-HEVCDecoder-CodecPack"/>
             <EventProviderId Value="EventProvider_Microsoft-Windows-MSMPEG2VDEC"/>
             <EventProviderId Value="Microsoft-Windows-Media-Protection-PlayReady-Performance"/>
+            <EventProviderId Value="PlayReady"/>
             <EventProviderId Value="Microsoft-Windows-DVD"/>
             <EventProviderId Value="TraceLogging/Microsoft.Windows.Audio.CrossProcess"/>
             <EventProviderId Value="TraceLogging/Microsoft.Windows.Audio.KernelStreamingEndpoint"/>
