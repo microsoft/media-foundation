@@ -16,12 +16,13 @@ A collection of Microsoft Media Foundation sample apps along with tooling and do
 - [Identifying Video Rendering Related Issues](./performanceTracing/README.md)
 
 ## Microsoft Tools
-1. [Media Experience Analyzer]() (MXA) - An advanced analysis tool used by Media experts to analyze Media Foundation performance traces.
-    - Available for download [here](https://www.microsoft.com/en-us/download/details.aspx?id=43105)
-    - [MXA Getting Started pdf](https://www.microsoft.com/en-us/download/details.aspx?id=43105)
+1. Media Experience Analyzer (MXA) - An advanced analysis tool used by Media experts to analyze Media Foundation performance traces.
+    [![MXA Screenshot](./images/mxa_small.png)](./images/mxa.png)
+
+    - Available for download packaged with the Windows ADK [here](https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install). You can opt to install only MXA using the installer.
+    [![MXA ADK Installer](./images/adk_installer.png)](./images/adk_installer.png)
     - Microsofts Channel9 has produced a series of training videos for MXA available [here](./MXAVideoList.md)
 
-    [![MXA Screenshot](./images/mxa_small.png)](./images/mxa.png)
 
 2. [GPUView](https://docs.microsoft.com/en-us/windows-hardware/drivers/display/using-gpuview) - A development tool for determining the performance of the graphics processing unit (GPU) and CPU. It looks at performance with regard to direct memory access (DMA) buffer processing and all other video processing on the video hardware.
     - Available in the [Windows SDK](https://developer.microsoft.com/en-US/windows/downloads/windows-10-sdk/)
