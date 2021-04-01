@@ -529,6 +529,7 @@
             <EventProviderId Value="EventProvider_Audio_PortClass" />
             <EventProviderId Value="EventProvider_Audio_Events" />
             <EventProviderId Value="PlayReady"/>
+            <EventProviderId Value="Microsoft-Windows-CodeIntegrity"/>
           </EventProviders>
         </EventCollectorId>
       </Collectors>
