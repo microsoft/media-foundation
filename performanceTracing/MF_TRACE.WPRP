@@ -98,7 +98,11 @@
     <EventProvider Id="EventProvider_Microsoft-HEVCDecoder-CodecPack" Name="F80BFC2D-11EA-425F-9E7C-D76484D2EC3C"/>
     <EventProvider Id="EventProvider_Microsoft-Windows-MSMPEG2VDEC" Name="ae5cf422-786a-476a-ac96-753b05877c99"/>
     <EventProvider Id="Microsoft-Windows-Media-Protection-PlayReady-Performance" Name="D2402FDE-7526-5A7B-501A-25DC7C9C282E"/>
-    <EventProvider Id="PlayReady" Name="00000000-7ac4-430a-94e4-b0dfd254650f"/>
+    <EventProvider Id="PlayReady" Name="00000000-7ac4-430a-94e4-b0dfd254650f" Level="255">
+      <Keywords>
+        <Keyword Value="0x7FFFFFFF"/>
+      </Keywords>
+    </EventProvider>
     <EventProvider Id="Microsoft-Windows-DVD" Name="e18d0fca-9515-4232-98e4-89e456d8551b"/>
     <EventProvider Id="EventProvider_Microsoft-Windows-Dwm-Core" Name="9e9bba3c-2e38-40cb-99f4-9e8281425164" Level="6">
       <Keywords>
