@@ -103,6 +103,83 @@
         <Keyword Value="0x7FFFFFFF"/>
       </Keywords>
     </EventProvider>
+
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.CodecAppSvc" Name="fbdc4594-a4a9-5f04-af86-7bd18a7938b9" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.DolbyAtmosDecoder" Name="5828b13b-49ca-4017-9455-7e6c0c36eb6a" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.FlacDecoder" Name="6b0310a6-0ff4-47d2-a554-a1bb260f9617" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.H264Decoder" Name="b71ee1de-b092-4737-a55f-ecdf2e70e6be" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.H264Encoder" Name="deb6de00-a0cb-5689-f9f9-f26cb3970205" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.H265Decoder" Name="8eff71c4-cb3e-5664-86bf-7e15bd6f9fa4" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.MP3Source" Name="c6f749c6-fbe8-5c8d-f3b1-aca1563d7be3" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.MPEG4Source" Name="85e2da35-d4fe-5a85-0874-ed763688fd59" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.MPEGDecoder" Name="44484773-a039-5c4a-d95c-2c23f586497c" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.MSE" Name="b5f30508-38bb-5033-4f81-7de7fe7c4369" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.OpusDecoder" Name="63e17c10-2d43-4c42-8fe3-8d8b63e46a6a" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.VP9Decoder" Name="fe9ef1dd-9fad-548c-5563-5df4b7c5b889" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.WMVDecoder" Name="ed2c1ccc-a5ec-5cea-ef9a-88905c5d4950" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.XVP" Name="d5cc9846-9cd8-5306-dece-438825703e54" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Microsoft.Windows.MediaFoundation.AV1Decoder" Name="716B090F-4BE8-4E06-BA7A-39F8545BFB9E" Level="32">
+      <Keywords>
+        <Keyword Value="0xffffffffffffffff"/>
+      </Keywords>
+    </EventProvider>
+
     <EventProvider Id="Microsoft-Windows-DVD" Name="e18d0fca-9515-4232-98e4-89e456d8551b"/>
     <EventProvider Id="EventProvider_Microsoft-Windows-Dwm-Core" Name="9e9bba3c-2e38-40cb-99f4-9e8281425164" Level="6">
       <Keywords>
@@ -491,7 +568,23 @@
             <EventProviderId Value="EventProvider_CALLSTACK_TELEMETRY_PROVIDER" />
             <EventProviderId Value="EventProvider_Microsoft-JScript" />
             <EventProviderId Value="EventProvider_Microsoft-Windows-App-Browser" />
-            <EventProviderId Value="EventProvider_Microsoft-Web-Platform" />	
+            <EventProviderId Value="EventProvider_Microsoft-Web-Platform" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.CodecAppSvc" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.DolbyAtmosDecoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.FlacDecoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.H264Decoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.H264Encoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.H265Decoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.MP3Source" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.MPEG4Source" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.MPEGDecoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.MSE" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.OpusDecoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.VP9Decoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.WMVDecoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.XVP" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.AV1Decoder" />
+            
           </EventProviders>
         </EventCollectorId>
       </Collectors>
@@ -534,6 +627,21 @@
             <EventProviderId Value="EventProvider_Audio_Events" />
             <EventProviderId Value="PlayReady"/>
             <EventProviderId Value="Microsoft-Windows-CodeIntegrity"/>
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.CodecAppSvc" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.DolbyAtmosDecoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.FlacDecoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.H264Decoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.H264Encoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.H265Decoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.MP3Source" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.MPEG4Source" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.MPEGDecoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.MSE" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.OpusDecoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.VP9Decoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.WMVDecoder" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.XVP" />
+            <EventProviderId Value="Microsoft.Windows.MediaFoundation.AV1Decoder" />
           </EventProviders>
         </EventCollectorId>
       </Collectors>
