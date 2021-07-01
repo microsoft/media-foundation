@@ -1,0 +1,52 @@
+TARGETNAME=storecdm_clearkey
+TARGET_DESTINATION = test
+TARGETTYPE=DYNLINK
+USE_NOTHROW_NEW=1
+USE_UNICRT=1
+USE_MSVCRT=1
+MSC_WARNING_LEVEL=/W4
+
+#  Can't force store-only because need to implement stuff from mfinternal.idl
+C_DEFINES = $(C_DEFINES) -DUNICODE -D_UNICODE -D__WRL_STRICT__ -D__WRL_FORCE_INSPECTABLE_CLASS_MACRO__
+
+IDL_TYPE = winrt
+MIDL_FLAGS= $(MIDL_FLAGS) /ns_prefix
+DISABLE_MIDL_VERSION_CHECKS=1
+
+TEST_CODE=1
+NT_SIGNCODE=1
+
+# DLL must be loaded inside PMP process
+NT_SIGNCODE_PH=1
+
+BUILD_FOR_CORESYSTEM=1       # enable CoreSystem-specific ATL, psapi, etc.
+USE_DEFAULT_WIN32_LIBS=0     # prevent kernel32.dll, advapi32.dll, etc. from being linked in automatically
+
+# enable and specify a precompiled header.
+PRECOMPILED_CXX=1
+PRECOMPILED_INCLUDE=stdafx.h
+
+INCLUDES = \
+    $(PROJECT_SDK_METADATA_PATH)\abi;  \
+    $(SDK_INC_PATH);                   \
+    $(SDK_INC_PATH)\winrt;             \
+    $(OBJ_PATH)\$O;                    \
+
+SOURCES = \
+    storecdm_clearkey.idl                     \
+    dllmain.cpp                               \
+    keydatahelper.cpp                         \
+    dynamicarrayhelper.cpp                    \
+    peauthhelper.cpp                          \
+    cdm.cpp                                   \
+    mft.cpp                                   \
+    ce.cpp                                    \
+
+TARGETLIBS = \
+    $(ONECORE_EXTERNAL_SDK_LIB_PATH)\onecoreuap.lib  \
+    $(ONECOREUAP_EXTERNAL_SDK_LIB_PATH)\mfplat.lib      \
+    $(ONECOREUAP_EXTERNAL_SDK_LIB_PATH)\mfuuid.lib      \
+    $(ONECOREUAP_EXTERNAL_SDK_LIB_PATH)\Rtworkq.lib     \
+    $(ONECOREUAP_EXTERNAL_SDK_LIB_PATH)\mfcore.lib     \
+    $(ONECOREUAP_INTERNAL_SDK_LIB_PATH)\onecoreuapuuid.lib        \
+

@@ -1,0 +1,5 @@
+DIRS =           \
+    dll          \
+    appx         \
+    clearkeydll  \
+

@@ -1,0 +1,40 @@
+import "Windows.Media.idl";
+import "Windows.Media.Protection.idl";
+import "Windows.Foundation.idl";
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "mfidl.idl";
+import "mfmediaengine.idl";
+import "mfcontentdecryptionmodule.idl";
+
+#include <sdkddkver.h>
+
+namespace org.w3.clearkey
+{
+    runtimeclass TrustedInput;
+    runtimeclass ContentEnabler;
+
+    //  We don't want to implementent any modern interfaces, but we have to create one anyway!
+    [version( 1 ), uuid( 2d363c7b-443e-46d1-98ee-3bffdf871190 )]
+    interface IUnused : IInspectable
+    {
+    };
+
+    [version( 1 ), activatable( NTDDI_WIN8 )]
+    runtimeclass CdmFactory
+    {
+        [default] interface IUnused;
+    };
+    [version( 1 ), activatable( NTDDI_WIN8 )]
+    runtimeclass TrustedInput
+    {
+        [default] interface IUnused;
+    };
+    [version( 1 ), activatable( NTDDI_WIN8 )]
+    runtimeclass ContentEnabler
+    {
+        [default] interface IUnused;
+    };
+}
+
