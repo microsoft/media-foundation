@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4" xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10" xmlns:wincap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/windowscapabilities" xmlns:wincap3="http://schemas.microsoft.com/appx/manifest/foundation/windows10/windowscapabilities/3" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="wincap wincap3 uap uap4 uap10 rescap mp">
+  <Identity Name="clearkeyStoreCDM" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" Version="1.1.163.0" />
+  <mp:PhoneIdentity PhoneProductId="cdde9825-b807-488f-877e-c454d38f88c6" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>clearkeyStoreCDM</DisplayName>
+    <PublisherDisplayName>Microsoft Corporation</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+    <!-- <PackageDependency Name="MF.StoreCdm" MinVersion="1.0.0.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" /> -->
+  </Dependencies>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="clearkeyStoreCDM.App">
+      <uap:VisualElements DisplayName="clearkeyStoreCDM" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="clearkeyStoreCDM" BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <wincap:Capability Name="inProcessMediaExtension" />
+  </Capabilities>
+  <Extensions>
+    <uap10:Extension Category="windows.mediaContentDecryptionModule">
+      <uap10:MediaContentDecryptionModule DisplayName="ClearKeyCDM" Description="Implementation of Clear Key w3" SupportedKeySystem="org.w3.clearkey" wincap3:ActivatableClassId="org.w3.clearkey.CdmFactory" wincap3:Path="storecdm_clearkey.dll" wincap3:ProcessorArchitecture="x64" />
+    </uap10:Extension>
+  </Extensions>
+</Package>

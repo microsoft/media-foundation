@@ -108,6 +108,19 @@ steps:
       msbuildArchitecture: x64
       createLogFile: true
     condition: succeededOrFailed()
+    
+  - task: VSBuild@1
+    displayName: 'Build storeCDM Sample'
+    inputs:
+      solution: samples/storecdm/clearkeyStoreCDM/clearkeyStoreCDM.sln
+      vsVersion: 16.0
+      msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\clearkeyStoreCDM\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
+      platform: '$(BuildPlatform)'
+      configuration: '$(BuildConfiguration)'
+      clean: true
+      msbuildArchitecture: x64
+      createLogFile: true
+    condition: succeededOrFailed()
 
   - task: CopyFiles@2
     inputs:
