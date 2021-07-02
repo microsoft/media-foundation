@@ -5,7 +5,7 @@ A collection of Microsoft Media Foundation sample apps along with tooling and do
 - [MediaEngineUWP](https://github.com/microsoft/media-foundation/tree/master/samples/MediaEngineUWPSample) - A sample UWP C++/WinRT application which demonstrates media playback using the MediaFoundation MediaEngine API and the WinRT composition APIs.
 - [MediaEngineEMEUWP](https://github.com/microsoft/media-foundation/tree/master/samples/MediaEngineEMEUWPSample) - A sample UWP application written in C++ which demonstrates protected Playready EME media playback using the MediaFoundation MediaEngine API and the WinRT composition APIs.
 - [MediaEngineDCompWin32Sample](https://github.com/microsoft/media-foundation/tree/master/samples/MediaEngineDCompWin32Sample) - A sample native C++ Win32 application which demonstrates media playback using the MediaFoundation MediaEngine API and the DirectComposition API.
-- [storeCDM](https://github.com/microsoft/media-foundation/tree/master/samples/storeCDM) - A UWP app which loads a native implementation of the clearkey CDM.
+- [storeCDM](https://github.com/microsoft/media-foundation/tree/master/samples/storeCDM) - A UWP app which loads a native implementation of the [clearkey](https://www.w3.org/TR/encrypted-media/#clear-key) CDM.
 
 ## Documentation
 - [Media Foundation SDK](https://docs.microsoft.com/en-us/windows/win32/medfound/microsoft-media-foundation-sdk)

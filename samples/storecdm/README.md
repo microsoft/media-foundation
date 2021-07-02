@@ -5,7 +5,7 @@ This solution provides a sample for loading a Content Decryption Module (CDM) us
 ## Sample Details
 
 The solution contains two projects:
-1. A native DLL which implements the clearkey CDM
+1. A native DLL which implements the [clearkey](https://www.w3.org/TR/encrypted-media/#clear-key) CDM
 2. A UWP application which contains information on what DLL to load (currently the clearkeyDLL)
 
 **Note** The Universal Windows app samples require Visual Studio 2019 to build and Windows 10 to execute.
@@ -35,7 +35,7 @@ Note: Make sure to check Universal Windows App Development Tools during Visual S
 
 ## Test the sample
 
-Publicly built apps should access the store CDM is by using the CreateContentDecryptionModuleFactory API. This API was added to the IMFMediaEngineClassFactory interface in the 19041 version of the SDK.
+Publicly built apps should access the store CDM is by using the [CreateContentDecryptionModuleFactory](https://github.com/microsoft/media-foundation/blob/969f38b9fff9892f5d75bc353c72d213da807739/samples/MediaEngineEMEUWPSample/src/media/MediaEngineProtectedContentInterfaces.h#:~:text=virtual%20HRESULT%20STDMETHODCALLTYPE%20CreateContentDecryptionModuleFactory() API. This API was added to the [IMFMediaEngineClassFactory](https://docs.microsoft.com/en-us/windows/win32/api/mfmediaengine/nn-mfmediaengine-imfmediaengineclassfactory) interface in the 19041 version of the SDK.
 
 ## Debug the sample
 

@@ -53,7 +53,7 @@ void App::OnLaunched(Windows::ApplicationModel::Activation::LaunchActivatedEvent
 
         if (e->PreviousExecutionState == ApplicationExecutionState::Terminated)
         {
-            // TODO: Restore the saved session state only when appropriate, scheduling the
+            // You may want to restore the saved session state only when appropriate, scheduling the
             // final launch steps after the restore is complete
 
         }
@@ -102,7 +102,7 @@ void App::OnSuspending(Object^ sender, SuspendingEventArgs^ e)
     (void) sender;  // Unused parameter
     (void) e;   // Unused parameter
 
-    //TODO: Save application state and stop any background activity
+    //You may want to save application state and stop any background activity
 }
 
 /// <summary>
