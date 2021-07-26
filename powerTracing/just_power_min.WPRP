@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone='yes'?>
+
+<WindowsPerformanceRecorder Version="1.0" Author="Test author" Team="Test team" Comments="Test" Company="Microsoft Corporation" Copyright="Microsoft Corporation" Tag="Media">
+  <Profiles>
+
+    <!-- System Collectors -->
+    <SystemCollector Id="SystemCollector_Media" Name="NT Kernel Logger" Realtime="false">
+      <BufferSize Value="1024"/>
+      <Buffers Value="80"/>
+    </SystemCollector>
+
+    <!-- Event Collectors -->
+    <EventCollector Id="EventCollector_Media_Light" Name="Streaming Media Light Event Collector" Private="false" ProcessPrivate="false" Secure="false" Realtime="false">
+      <BufferSize Value="128"/>
+      <Buffers Value="40"/>
+    </EventCollector>
+
+    <EventCollector Id="EventCollector_Media_Verbose" Name="Streaming Media Verbose Event Collector" Private="false" ProcessPrivate="false" Secure="false" Realtime="false">
+      <BufferSize Value="1024"/>
+      <Buffers Value="40"/>
+    </EventCollector>
+
+    <!-- System Providers -->
+    <SystemProvider Id="SystemProvider_Base">
+      <Keywords>
+        <Keyword Value="CpuConfig"/>
+      </Keywords>
+    </SystemProvider>
+    
+    <SystemProvider Id="SystemProvider_Media" Base="SystemProvider_Base">
+      <Keywords Operation="Add">
+        <Keyword Value="DiskIO"/>
+      </Keywords>
+    </SystemProvider>
+
+    <!-- Event Providers -->
+    <EventProvider Id="EventProvider_UMPS" Name="Microsoft-Windows-Power-Meter-Polling" NonPagedMemory="true" EventKey="true">
+      <Keywords>
+        <Keyword Value="0xFFFFFFFFFFFFFF04"/>
+      </Keywords>     
+      <CaptureStateOnSave>
+        <Keyword Value="0xFFFFFFFFFFFFFFFF" />
+      </CaptureStateOnSave>
+    </EventProvider>
+
+    <EventProvider Id="EventProvider_Microsoft-Windows-Kernel-PnP" Name="9C205A39-1250-487D-ABD7-E831C6290539"/>
+
+    <EventProvider Id="EventProvider_Microsoft-Windows-UserModePowerService_CaptureState" Name="Microsoft-Windows-UserModePowerService" NonPagedMemory="true">
+      <CaptureStateOnSave>
+        <Keyword Value="0x0"/>
+      </CaptureStateOnSave>
+    </EventProvider>
+
+    <EventProvider Id="EventProvider_Microsoft-Windows-Kernel-Processor-Power_CaptureState" Name="Microsoft-Windows-Kernel-Processor-Power" NonPagedMemory="true" >
+      <CaptureStateOnSave>
+        <Keyword Value="0x2"/>
+      </CaptureStateOnSave>
+    </EventProvider>
+
+    <EventProvider Id="EventProvider_Microsoft-Windows-Kernel-Power" Name="Microsoft-Windows-Kernel-Power" NonPagedMemory="true" />
+    <EventProvider Id="EventProvider_Microsoft-Windows-Kernel-Pep" Name="Microsoft-Windows-Kernel-Pep" NonPagedMemory="true" />
+    <EventProvider Id="EventProvider_Microsoft-Windows-PDC" Name="Microsoft-Windows-PDC" NonPagedMemory="true" />
+	    
+    <!-- Profiles -->
+    <Profile Id="MediaProfile.Verbose.File" LoggingMode="File" Name="MediaProfile" DetailLevel="Verbose" Description="WindowsXRay FULL_TH Power Performance">
+      <ProblemCategories>
+        <ProblemCategory Value="First Level Triage"/>
+      </ProblemCategories>
+      <Collectors>
+        <SystemCollectorId Value="SystemCollector_Media">
+          <SystemProviderId Value="SystemProvider_Base"/>
+        </SystemCollectorId>
+        <EventCollectorId Value="EventCollector_Media_Verbose">
+          <EventProviders>
+            <EventProviderId Value="EventProvider_UMPS" />
+          </EventProviders>
+        </EventCollectorId>
+      </Collectors>
+    </Profile>
+
+
+  </Profiles>
+
+  <TraceMergeProperties>
+    <TraceMergeProperty  Id="TraceMerge_Default" Name="TraceMerge_Default" Base="">
+      <DeletePreMergedTraceFiles Value="true"/>
+      <CustomEvents>
+        <CustomEvent Value="ImageId"/>
+        <CustomEvent Value="BuildInfo"/>
+        <CustomEvent Value="VolumeMapping"/>
+        <CustomEvent Value="EventMetadata"/>
+        <CustomEvent Value="PerfTrackMetadata"/>
+        <CustomEvent Value="WinSAT"/>
+        <CustomEvent Value="NetworkInterface"/>
+      </CustomEvents>
+    </TraceMergeProperty>
+  </TraceMergeProperties>
+
+</WindowsPerformanceRecorder>
