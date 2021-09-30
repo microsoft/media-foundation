@@ -96,7 +96,6 @@ void MediaEngineWrapper::Initialize(IMFMediaSource* mediaSource)
 {
     RunSyncInMTA([&]()
     {
-        InitializeVideo();
         CreateMediaEngine(mediaSource);
     });
 }
