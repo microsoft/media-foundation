@@ -497,6 +497,118 @@
       </Collectors>
     </Profile>
 
+    <Profile Id="MediaPerformance_Memory.Verbose.Memory" LoggingMode="Memory" Name="MediaPerformance_Memory" DetailLevel="Verbose" Description="WindowsXRay FULL_TH_WPP Power and Performance Memory">
+      <ProblemCategories>
+        <ProblemCategory Value="First Level Triage Memory"/>
+      </ProblemCategories>
+      <Collectors>
+        <SystemCollectorId Value="SystemCollector_Media">
+          <SystemProviderId Value="SystemProvider_Media_Verbose"/>
+        </SystemCollectorId>
+        <EventCollectorId Value="EventCollector_Media_Verbose">
+          <EventProviders>
+            <EventProviderId Value="MF_CALLSTACK_TELEMETRY_PROVIDER"/>		  
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaEngine"/>
+            <EventProviderId Value="EventProvider_Microsoft-WindowsPhone-MediaEngine-Phone-Legacy"/>
+            <EventProviderId Value="Microsoft-Windows-MediaFoundation-Platform"/>
+            <EventProviderId Value="Microsoft-Windows-CodeIntegrity"/>
+            <EventProviderId Value="Microsoft_Windows_MediaFoundation_Performance_Core"/>
+            <EventProviderId Value="Microsoft-Windows-MediaFoundation-Performance-Extended"/>
+            <EventProviderId Value="Microsoft_Windows_MediaFoundation_Performance_Threading"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-RTWorkQueue-Threading"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-RTWorkQueue-Extended"/>
+            <EventProviderId Value="Microsoft-Windows-MF"/>
+            <EventProviderId Value="Microsoft-Windows-MediaFoundation-MFReadWrite"/>
+            <EventProviderId Value="Microsoft-Windows-MediaFoundation-MSVProc"/>
+            <EventProviderId Value="EventProvider_Microsoft-HEVCDecoder"/>
+            <EventProviderId Value="EventProvider_Microsoft-HEVCDecoder-CodecPack"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MSMPEG2VDEC"/>
+            <EventProviderId Value="Microsoft-Windows-Media-Protection-PlayReady-Performance"/>
+            <EventProviderId Value="PlayReady"/>
+            <EventProviderId Value="Microsoft-Windows-DVD"/>
+            <EventProviderId Value="TraceLogging/Microsoft.Windows.Audio.CrossProcess"/>
+            <EventProviderId Value="TraceLogging/Microsoft.Windows.Audio.KernelStreamingEndpoint"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-Audio"/>
+            <EventProviderId Value="EventProvider_Microsoft-IE"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-Dwm-Core"/>
+            <EventProviderId Value="EventProvider_Audio-Engine-Verbose"/>
+            <EventProviderId Value="EventProvider_Warp"/>
+            <EventProviderId Value="EventProvider_DWMAPI"/>
+            <EventProviderId Value="EventProvider_DWM"/>
+            <EventProviderId Value="EventProvider_DwmRedir"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-DxgKrnl"/>
+            <EventProviderId Value="Microsoft-Windows-DXGI"/>
+            <EventProviderId Value="EventProvider_DX"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-Win32k"/>
+            <EventProviderId Value="EventProvider_D3D11"/>
+            <EventProviderId Value="EventProvider_D3D10_1"/>
+            <EventProviderId Value="EventProvider_D3D10"/>
+            <EventProviderId Value="EventProvider_D3D10Level9"/>
+            <EventProviderId Value="EventProvider_DShow"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-Performance"/>
+            <EventProviderId Value="EventProvider_MFWMI"/>
+            <EventProviderId Value="EventProvider_DXVA2"/>
+            <EventProviderId Value="EventProvider_ScheduleGuid"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-Shell-Core"/>
+            <EventProviderId Value="EventProvider_UMD"/>
+            <EventProviderId Value="EventProvider_CODEC"/>
+            <EventProviderId Value="EventProvider_KMFD"/>
+            <EventProviderId Value="EventProvider_UMFD"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-Kernel-Power" /> 
+            <EventProviderId Value="EventProvider_Microsoft-Windows-Kernel-Pep" /> 
+            <EventProviderId Value="EventProvider_Microsoft-Windows-PDC" /> 
+            <EventProviderId Value="EventProvider_Microsoft-Windows-Kernel-Processor-Power_CaptureState" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-Kernel-PnP" />
+            <!-- <EventProviderId Value="EventProvider_Microsoft-Windows-UserModePowerService_CaptureState" /> -->
+            <EventProviderId Value="NDIS" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MMCSS"/>
+            <EventProviderId Value="HTTP" />
+            <EventProviderId Value="KERNELNET" />	
+            <EventProviderId Value="TCPIP" />	
+            <EventProviderId Value="NWIFI" />	
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-MFCaptureEngine"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-WinRT-Error"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-Runtime-Media"/>
+            <EventProviderId Value="EventProvider_MICROSOFT_WINDOWS_VIDEOEDITING"/> 
+            <EventProviderId Value="EventProvider_EDITING_TELEMETRY"/>
+            <EventProviderId Value="EventProvider_NCSI" />
+            <EventProviderId Value="EventProvider_MediaService" />
+            <EventProviderId Value="EventProvider_MediaServiceLocal" />            
+            <EventProviderId Value="EventProvider_MF_PALWP" />
+            <EventProviderId Value="EventProvider_MF_PLATFORM" />            
+            <EventProviderId Value="EventProvider_MF_PIPELINE" />
+            <EventProviderId Value="EventProvider_MF_CORE_SINKS" />            
+            <EventProviderId Value="EventProvider_MF_CORE_SOURCES" />
+            <EventProviderId Value="EventProvider_MF_NETWORK" />            
+            <EventProviderId Value="EventProvider_MF_CORE_MFTS" />
+            <EventProviderId Value="EventProvider_MF_PLAY" />            
+            <EventProviderId Value="EventProvider_MF_CAPTURE_ENGINE" />
+            <EventProviderId Value="EventProvider_MF_VIDEO_PROCESSOR" />                                    
+            <EventProviderId Value="EventProvider_WMP" />
+            <EventProviderId Value="EventProvider_EVR_WPP" />            
+            <EventProviderId Value="EventProvider_WpdShExt" />
+            <EventProviderId Value="EventProvider_WPD_WpdShellExtension" />            
+            <EventProviderId Value="EventProvider_DAF" />
+            <EventProviderId Value="EventProvider_DLNA" />            
+            <EventProviderId Value="EventProvider_UPnP" />
+            <EventProviderId Value="EventProvider_MediaEngine" />            
+            <EventProviderId Value="EventProvider_WMC" />
+            <EventProviderId Value="EventProvider_WMC_Nexus" />            
+            <EventProviderId Value="EventProvider_mfplat" />
+            <EventProviderId Value="EventProvider_Audio_SES" />                                    
+            <EventProviderId Value="EventProvider_Audio_Stack" />
+            <EventProviderId Value="EventProvider_Audio_USB" />            
+            <EventProviderId Value="EventProvider_Audio_PortClass" />
+            <EventProviderId Value="EventProvider_Audio_Events" />                                    
+            <EventProviderId Value="EventProvider_CALLSTACK_TELEMETRY_PROVIDER" />
+            <EventProviderId Value="EventProvider_Microsoft-JScript" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-App-Browser" />
+            <EventProviderId Value="EventProvider_Microsoft-Web-Platform" />	
+          </EventProviders>
+        </EventCollectorId>
+      </Collectors>
+    </Profile>
+
     <Profile Id="MediaSimple.Verbose.File" LoggingMode="File" Name="MediaSimple" DetailLevel="Verbose" Description="Simple MF Trace">
       <ProblemCategories>
         <ProblemCategory Value="First Level Triage"/>
