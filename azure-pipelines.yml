@@ -26,7 +26,7 @@ strategy:
       BuildConfiguration: Debug
 
 pool:
-  name: Mediaplat2
+  name: (AgentPool)
 #  demands: agent.osversion -equals 10.0.17763
 
 # CI trigger
