@@ -28,5 +28,5 @@ Follow these steps to capture traces and other related information.
 
 ## Video Playback Performance Scenarios 
 
-See this [section](./performanceTracing/README.md) for more information.
+See this [section](../performanceTracing/README.md) for more information.
 
