@@ -13,10 +13,10 @@ Follow these steps to capture traces and other related information.
 2. Start tracing and reproduce the issue
     - Close all Edge browser sessions
     - Launch mftracelog.exe by double-clicking on the file in File Explorer
-    - Select **Simple** and **Full Traces** radio button in the mftracelog.exe UI as shown below.  
-
+    - Select **Simple** and **Full Traces** radio button in the mftracelog.exe UI as shown below. 
+    <br/><br/>
         [![mftracelog](./images/mftracelog.png)](./images/mftracelog.png)
-
+    <br/><br/>
     - click **Start Tracing** button. 
     - Reproduce the issue. Try to capture the repro in less than 2 minutes if possible to avoid large trace file.
 3. Stop tracing:
@@ -24,7 +24,7 @@ Follow these steps to capture traces and other related information.
     - This will generate several output files. File Explorer will automatically open to show all the files. 
     - Select all  files and select **"compress to zip file"** through right-click menu to create a zip file  
 4. Share the zip file 
-
+<br/><br/>
 
 ## Video Playback Performance Scenarios 
 
