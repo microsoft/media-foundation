@@ -2,7 +2,7 @@
 There are various tools and scripts to capture Media Foundation (MF) traces. Following sections provide information on the recommended tools/scripts and steps to capture MF traces for specific scenarios.   
 
 
-## Edge Browser Video Playback Scenarios
+## Application/Browser Video Playback Scenarios
 
 Follow these steps to capture traces and other related information.
 
@@ -11,7 +11,7 @@ Follow these steps to capture traces and other related information.
     - Unzip the downloaded file to obtain mftracelog.exe for x86, arm64 and amd64 platforms
     - Identify your machine's platform (amd64, x86, arm64) and open the corresponding folder   
 2. Start tracing and reproduce the issue
-    - Close all Edge browser sessions
+    - Close all instances of the video playback application/browser involved. 
     - Launch mftracelog.exe by double-clicking on the file in File Explorer
     - Select **Simple** and **Full Traces** radio button in the mftracelog.exe UI as shown below. 
     <br/><br/>
