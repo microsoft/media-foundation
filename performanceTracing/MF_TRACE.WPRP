@@ -432,6 +432,78 @@
     <EventProvider Id="EventProvider_Microsoft-WSACodecs-TraceLogging" Name="184B611D-3C35-481F-B7B6-F9A55BAEB3FD" Level="32"/>
     <EventProvider Id="EventProvider_Microsoft-LatteDecoders-TraceLogging" Name="3B01F836-57F2-4251-B3FF-6982615560ED" Level="32"/>
 
+    <EventProvider Id="Chrome" Name="d2d578d9-2936-45b6-a09f-30e32715f42d" Level="5">
+      <Keywords>
+        <Keyword Value="0x2F00000FE7FF"/>
+      </Keywords>
+    </EventProvider>
+    <EventProvider Id="Edge" Name="3A5F2396-5C8F-4F1F-9B67-6CCA6C990E61" Level="5">
+      <Keywords>
+        <Keyword Value="0x2F00000FE7FF"/>
+      </Keywords>
+      <CaptureStateOnStart>
+        <Keyword Value="0x200000000000"/>
+      </CaptureStateOnStart>
+      <CaptureStateOnSave>
+        <Keyword Value="0x200000000000"/>
+      </CaptureStateOnSave>
+    </EventProvider>
+    <EventProvider Id="Edge_Canary" Name="C56B8664-45C5-4E65-B3C7-A8D6BD3F2E67" Level="5">
+      <Keywords>
+        <Keyword Value="0x2F00000FE7FF"/>
+      </Keywords>
+      <CaptureStateOnStart>
+        <Keyword Value="0x200000000000"/>
+      </CaptureStateOnStart>
+      <CaptureStateOnSave>
+        <Keyword Value="0x200000000000"/>
+      </CaptureStateOnSave>
+    </EventProvider>
+    <EventProvider Id="Edge_Dev" Name="D30B5C9F-B58F-4DC9-AFAF-134405D72107" Level="5">
+      <Keywords>
+        <Keyword Value="0x2F00000FE7FF"/>
+      </Keywords>
+      <CaptureStateOnStart>
+        <Keyword Value="0x200000000000"/>
+      </CaptureStateOnStart>
+      <CaptureStateOnSave>
+        <Keyword Value="0x200000000000"/>
+      </CaptureStateOnSave>
+    </EventProvider>
+    <EventProvider Id="Edge_Beta" Name="BD089BAA-4E52-4794-A887-9E96868570D2" Level="5">
+      <Keywords>
+        <Keyword Value="0x2F00000FE7FF"/>
+      </Keywords>
+      <CaptureStateOnStart>
+        <Keyword Value="0x200000000000"/>
+      </CaptureStateOnStart>
+      <CaptureStateOnSave>
+        <Keyword Value="0x200000000000"/>
+      </CaptureStateOnSave>
+    </EventProvider>
+    <EventProvider Id="Edge_Internal" Name="49C85E08-E8A5-49D6-81EA-7270531EC8AF" Level="5">
+      <Keywords>
+        <Keyword Value="0x2F00000FE7FF"/>
+      </Keywords>
+      <CaptureStateOnStart>
+        <Keyword Value="0x200000000000"/>
+      </CaptureStateOnStart>
+      <CaptureStateOnSave>
+        <Keyword Value="0x200000000000"/>
+      </CaptureStateOnSave>      
+    </EventProvider>
+    <EventProvider Id="Edge_WebView" Name="E16EC3D2-BB0F-4E8F-BDB8-DE0BEA82DC3D" Level="5">
+      <Keywords>
+        <Keyword Value="0x2F00000FE7FF"/>
+      </Keywords>
+      <CaptureStateOnStart>
+        <Keyword Value="0x200000000000"/>
+      </CaptureStateOnStart>
+      <CaptureStateOnSave>
+        <Keyword Value="0x200000000000"/>
+      </CaptureStateOnSave>
+    </EventProvider>
+
     <!-- Profiles -->
     <Profile Id="MediaPerformance.Verbose.File" LoggingMode="File" Name="MediaPerformance" DetailLevel="Verbose" Description="WindowsXRay FULL_TH_WPP Power and Performance">
       <ProblemCategories>
@@ -558,6 +630,13 @@
             <EventProviderId Value="EventProvider_Microsoft-Windows-Dwm-Compositor"/>
             <EventProviderId Value="EventProvider_Microsoft-WSACodecs-TraceLogging" />
             <EventProviderId Value="EventProvider_Microsoft-LatteDecoders-TraceLogging" />
+            <EventProviderId Value="Chrome" />
+            <EventProviderId Value="Edge" />
+            <EventProviderId Value="Edge_Canary" />
+            <EventProviderId Value="Edge_Dev" />
+            <EventProviderId Value="Edge_Beta" />
+            <EventProviderId Value="Edge_Internal" />
+            <EventProviderId Value="Edge_WebView" />
           </EventProviders>
         </EventCollectorId>
         
@@ -695,6 +774,13 @@
             <EventProviderId Value="EventProvider_Microsoft-Windows-Dwm-Compositor"/>
             <EventProviderId Value="EventProvider_Microsoft-WSACodecs-TraceLogging" />
             <EventProviderId Value="EventProvider_Microsoft-LatteDecoders-TraceLogging" />
+            <EventProviderId Value="Chrome" />
+            <EventProviderId Value="Edge" />
+            <EventProviderId Value="Edge_Canary" />
+            <EventProviderId Value="Edge_Dev" />
+            <EventProviderId Value="Edge_Beta" />
+            <EventProviderId Value="Edge_Internal" />
+            <EventProviderId Value="Edge_WebView" />
           </EventProviders>
         </EventCollectorId>
         
@@ -747,6 +833,13 @@
             <EventProviderId Value="EventProvider_Microsoft-Windows-Dwm-Compositor"/>
             <EventProviderId Value="EventProvider_Microsoft-WSACodecs-TraceLogging" />
             <EventProviderId Value="EventProvider_Microsoft-LatteDecoders-TraceLogging" />
+            <EventProviderId Value="Chrome" />
+            <EventProviderId Value="Edge" />
+            <EventProviderId Value="Edge_Canary" />
+            <EventProviderId Value="Edge_Dev" />
+            <EventProviderId Value="Edge_Beta" />
+            <EventProviderId Value="Edge_Internal" />
+            <EventProviderId Value="Edge_WebView" />
           </EventProviders>
         </EventCollectorId>
       </Collectors>
