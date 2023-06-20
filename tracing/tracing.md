@@ -7,7 +7,7 @@ There are various tools and scripts to capture Media Foundation (MF) traces. Fol
 Follow these steps to capture traces and other related information.
 
 1. Download  
-    - Download [mftracelog.zip](https://github.com/microsoft/media-foundation/releases/download/V1/mftracelog.zip)
+    - Download **mftracelog.zip** from [https://github.com/microsoft/media-foundation/releases/latest](https://github.com/microsoft/media-foundation/releases/latest)
     - Unzip the downloaded file to obtain mftracelog.exe for x86, arm64 and amd64 platforms
     - Identify your machine's platform (amd64, x86, arm64) and open the corresponding folder   
 2. Start tracing and reproduce the issue
@@ -28,5 +28,7 @@ Follow these steps to capture traces and other related information.
 
 ## Video Playback Performance Scenarios 
 
-See this [section](../performanceTracing/README.md) for more information.
+For performance scenarios, select the **Performance** and **Full Traces** radio button in the mftracelog.exe UI and follow instructions as mentioned above. Performance traces can produce very large trace files so try to keep the capture to less than 2 minutes.
+
+Optionally, you can also capture traces using command window. See [section](../performanceTracing/README.md) for more information.
 
