@@ -496,6 +496,17 @@
         <Keyword Value="0x200000000000"/>
       </CaptureStateOnSave>
     </EventProvider>
+    <EventProvider Name="F1C86FF2-D2E5-404E-8EAC-F8DBB5A197D7" Id="Microsoft-Windows-MediaFoundation-TraceLogging-MFPlatform">
+      <Keywords>
+        <Keyword Value="0xFFFFFFFFFFFFFFFF"/>
+      </Keywords>
+      <CaptureStateOnStart>
+        <Keyword Value="0x0000400000000000"/>
+      </CaptureStateOnStart>
+      <CaptureStateOnSave>
+        <Keyword Value="0x0000400000000000"/>
+      </CaptureStateOnSave>
+    </EventProvider>
 
     <!-- Profiles -->
     <Profile Id="MediaPerformance.Verbose.File" LoggingMode="File" Name="MediaPerformance" DetailLevel="Verbose" Description="WindowsXRay FULL_TH_WPP Power and Performance">
@@ -630,6 +641,7 @@
             <EventProviderId Value="Edge_Beta_TraceLogging" />
             <EventProviderId Value="Edge_Internal_TraceLogging" />
             <EventProviderId Value="Edge_WebView_TraceLogging" />
+            <EventProviderId Value="Microsoft-Windows-MediaFoundation-TraceLogging-MFPlatform" />
           </EventProviders>
         </EventCollectorId>
         
@@ -774,6 +786,7 @@
             <EventProviderId Value="Edge_Beta_TraceLogging" />
             <EventProviderId Value="Edge_Internal_TraceLogging" />
             <EventProviderId Value="Edge_WebView_TraceLogging" />
+            <EventProviderId Value="Microsoft-Windows-MediaFoundation-TraceLogging-MFPlatform" />
           </EventProviders>
         </EventCollectorId>
         
@@ -830,6 +843,7 @@
             <EventProviderId Value="Edge_Beta_TraceLogging" />
             <EventProviderId Value="Edge_Internal_TraceLogging" />
             <EventProviderId Value="Edge_WebView_TraceLogging" />
+            <EventProviderId Value="Microsoft-Windows-MediaFoundation-TraceLogging-MFPlatform" />
           </EventProviders>
         </EventCollectorId>
       </Collectors>
@@ -879,6 +893,7 @@
             <EventProviderId Value="Edge_Beta_TraceLogging" />
             <EventProviderId Value="Edge_Internal_TraceLogging" />
             <EventProviderId Value="Edge_WebView_TraceLogging" />
+            <EventProviderId Value="Microsoft-Windows-MediaFoundation-TraceLogging-MFPlatform" />
           </EventProviders>
         </EventCollectorId>
       </Collectors>
