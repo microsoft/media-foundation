@@ -92,6 +92,7 @@
     <EventProvider Id="Microsoft-Windows-MF" Name="a7364e1a-894f-4b3d-a930-2ed9c8c4c811"/>
     <EventProvider Id="Microsoft-Windows-MediaFoundation-MFReadWrite" Name="4b7eac67-fc53-448c-a49d-7cc6db524da7"/>
     <EventProvider Id="Microsoft-Windows-Media-Protection-PlayReady-WPP" Name="00000000-7ac4-430a-94e4-b0dfd254650f"/>
+
     <EventProvider Id="EventProvider_Microsoft-PlayReady" Name="D2402FDE-7526-5A7B-501A-25DC7C9C282E"/>
     <EventProvider Id="Sensors" Name="32e38bd8-ac95-4605-894e-a5d815ca0f3b"/>
     <EventProvider Id="Hidi2c" Name="E742C27D-29B1-4E4B-94EE-074D3AD72836"/>
@@ -118,6 +119,11 @@
       <Keywords>
         <Keyword Value="0xffff"/>
       </Keywords>
+    </EventProvider>
+    <EventProvider Id="EventProvider_Microsoft-Windows-Dwm-Compositor" Name="044a9015-d96c-5dd1-0199-72d258325298" Level="6">
+        <Keywords>
+            <Keyword Value="0xffffffffffffffff"/>
+        </Keywords>
     </EventProvider>
     <EventProvider Id="EventProvider_Audio-Engine-Verbose" Name="A6A00EFD-21F2-4A99-807E-9B3BF1D90285" Level="3">
       <Keywords>
@@ -157,7 +163,13 @@
         <Keyword Value="0xffff"/>
       </Keywords>
     </EventProvider>
-    <EventProvider Id="EventProvider_Microsoft-Windows-Win32k" Name="8c416c79-d49b-4f01-a467-e56d3aa8234c" />
+    <EventProvider Id="EventProvider_Microsoft-Windows-Win32k" Name="8c416c79-d49b-4f01-a467-e56d3aa8234c" >
+      <Keywords>
+        <!-- remove lock contention tracking -->
+        <Keyword Value="0xefffffff"/>
+      </Keywords>
+    </EventProvider>
+
     <EventProvider Id="EventProvider_DXGI" Name="Microsoft-Windows-DXGI" />
     <EventProvider Id="EventProvider_D3D11" Name="db6f6ddb-ac77-4e88-8253-819df9bbf140" Level="6">
       <Keywords>
@@ -209,7 +221,12 @@
         <Keyword Value="0xffff"/>
       </Keywords>
     </EventProvider>
-    <EventProvider Id="EventProvider_Microsoft-Windows-Shell-Core" Name="30336ed4-e327-447c-9de0-51b652c86108"/>
+    <EventProvider Id="EventProvider_Microsoft-Windows-Shell-Core" Name="30336ed4-e327-447c-9de0-51b652c86108">
+      <Keywords>
+        <!-- remove properties keyword -->
+        <Keyword Value="0xfffdffff"/>
+      </Keywords>
+    </EventProvider>
     <EventProvider Id="EventProvider_UMD" Name="a688ee40-d8d9-4736-b6f9-6b74935ba3b1" Level="5">
       <Keywords>
         <Keyword Value="0xffff"/>
@@ -421,7 +438,6 @@
         <Keyword Value="0x7FFFFFFF"/>
       </Keywords>
     </EventProvider>
-    <EventProvider Id="EventProvider_Microsoft-Windows-Dwm-Compositor" Name="044a9015-d96c-5dd1-0199-72d258325298" Level="6"/>
     <EventProvider Id="EventProvider_Microsoft-WSACodecs-TraceLogging" Name="184B611D-3C35-481F-B7B6-F9A55BAEB3FD" Level="32"/>
     <EventProvider Id="EventProvider_Microsoft-LatteDecoders-TraceLogging" Name="3B01F836-57F2-4251-B3FF-6982615560ED" Level="32"/>
 
@@ -497,6 +513,15 @@
       </CaptureStateOnSave>
     </EventProvider>
 
+    <EventProvider Id="Media_Platform_TraceLogging" Name="F1C86FF2-D2E5-404E-8EAC-F8DBB5A197D7" Level="5">
+      <CaptureStateOnStart>
+        <Keyword Value="0x0000400000000000"/>
+      </CaptureStateOnStart>
+      <CaptureStateOnSave>
+        <Keyword Value="0x0000400000000000"/>
+      </CaptureStateOnSave>
+    </EventProvider>
+
     <!-- Profiles -->
     <Profile Id="MediaPerformance.Verbose.File" LoggingMode="File" Name="MediaPerformance" DetailLevel="Verbose" Description="WindowsXRay FULL_TH_WPP Power and Performance">
       <ProblemCategories>
@@ -532,11 +557,12 @@
             <EventProviderId Value="EventProvider_Microsoft-Windows-Audio"/>
             <EventProviderId Value="EventProvider_Microsoft-IE"/>
             <EventProviderId Value="EventProvider_DVD"/>
-            <EventProviderId Value="EventProvider_Microsoft-Windows-Dwm-Core"/>
             <EventProviderId Value="EventProvider_Audio-Engine-Verbose"/>
             <EventProviderId Value="EventProvider_Warp"/>
             <EventProviderId Value="EventProvider_DWMAPI"/>
             <EventProviderId Value="EventProvider_DWM"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-Dwm-Core"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-Dwm-Compositor"/>
             <EventProviderId Value="EventProvider_DwmRedir"/>
             <EventProviderId Value="EventProvider_Microsoft-Windows-DxgKrnl"/>
             <EventProviderId Value="EventProvider_DX"/>
@@ -620,7 +646,6 @@
             <EventProviderId Value="DEM"/>
             <EventProviderId Value="DEO"/>
             <EventProviderId Value="EventProvider_NCSI" />
-            <EventProviderId Value="EventProvider_Microsoft-Windows-Dwm-Compositor"/>
             <EventProviderId Value="EventProvider_Microsoft-WSACodecs-TraceLogging" />
             <EventProviderId Value="EventProvider_Microsoft-LatteDecoders-TraceLogging" />
             <EventProviderId Value="Chrome_TraceLogging" />
@@ -630,6 +655,7 @@
             <EventProviderId Value="Edge_Beta_TraceLogging" />
             <EventProviderId Value="Edge_Internal_TraceLogging" />
             <EventProviderId Value="Edge_WebView_TraceLogging" />
+            <EventProviderId Value="Media_Platform_TraceLogging"/>
           </EventProviders>
         </EventCollectorId>
         
@@ -676,11 +702,12 @@
             <EventProviderId Value="EventProvider_Microsoft-Windows-Audio"/>
             <EventProviderId Value="EventProvider_Microsoft-IE"/>
             <EventProviderId Value="EventProvider_DVD"/>
-            <EventProviderId Value="EventProvider_Microsoft-Windows-Dwm-Core"/>
             <EventProviderId Value="EventProvider_Audio-Engine-Verbose"/>
             <EventProviderId Value="EventProvider_Warp"/>
             <EventProviderId Value="EventProvider_DWMAPI"/>
             <EventProviderId Value="EventProvider_DWM"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-Dwm-Core"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-Dwm-Compositor"/>
             <EventProviderId Value="EventProvider_DwmRedir"/>
             <EventProviderId Value="EventProvider_Microsoft-Windows-DxgKrnl"/>
             <EventProviderId Value="EventProvider_DX"/>
@@ -764,7 +791,6 @@
             <EventProviderId Value="DEM"/>
             <EventProviderId Value="DEO"/>
             <EventProviderId Value="EventProvider_NCSI" />
-            <EventProviderId Value="EventProvider_Microsoft-Windows-Dwm-Compositor"/>
             <EventProviderId Value="EventProvider_Microsoft-WSACodecs-TraceLogging" />
             <EventProviderId Value="EventProvider_Microsoft-LatteDecoders-TraceLogging" />
             <EventProviderId Value="Chrome_TraceLogging" />
@@ -774,6 +800,7 @@
             <EventProviderId Value="Edge_Beta_TraceLogging" />
             <EventProviderId Value="Edge_Internal_TraceLogging" />
             <EventProviderId Value="Edge_WebView_TraceLogging" />
+            <EventProviderId Value="Media_Platform_TraceLogging"/>
           </EventProviders>
         </EventCollectorId>
         
@@ -830,6 +857,7 @@
             <EventProviderId Value="Edge_Beta_TraceLogging" />
             <EventProviderId Value="Edge_Internal_TraceLogging" />
             <EventProviderId Value="Edge_WebView_TraceLogging" />
+            <EventProviderId Value="Media_Platform_TraceLogging"/>
           </EventProviders>
         </EventCollectorId>
       </Collectors>
@@ -879,6 +907,7 @@
             <EventProviderId Value="Edge_Beta_TraceLogging" />
             <EventProviderId Value="Edge_Internal_TraceLogging" />
             <EventProviderId Value="Edge_WebView_TraceLogging" />
+            <EventProviderId Value="Media_Platform_TraceLogging"/>
           </EventProviders>
         </EventCollectorId>
       </Collectors>
