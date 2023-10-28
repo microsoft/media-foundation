@@ -13,7 +13,7 @@
     <AppContainerApplication>true</AppContainerApplication>
     <ApplicationType>Windows Store</ApplicationType>
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
-    <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformMinVersion>10.0.19041.0</WindowsTargetPlatformMinVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -45,7 +45,7 @@
   </ItemGroup>
   <PropertyGroup Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
     <PlatformToolset Condition="'$(VisualStudioVersion)' == '16.0'">v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -68,7 +68,7 @@
   <ImportGroup Label="PropertySheets">
     <Import Project="PropertySheet.props" />
   </ImportGroup>
-  <PropertyGroup Label="UserMacros"/>
+  <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup>
     <ClCompile>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -99,20 +99,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="media\CdmMediaSource.h" />
-    <ClInclude Include="media\eme\CdmConfigurationProperties.h" />
-    <ClInclude Include="media\eme\EmeFactory.h" />
-    <ClInclude Include="media\eme\MediaKeys.h" />
-    <ClInclude Include="media\eme\MediaKeySession.h" />
-    <ClInclude Include="media\eme\MediaKeySystemAccess.h" />
-    <ClInclude Include="media\eme\MediaKeySystemConfiguration.h" />
-    <ClInclude Include="media\MediaEngineExtension.h" />
-    <ClInclude Include="media\MediaEngineProtectedContentInterfaces.h" />
-    <ClInclude Include="media\MediaEngineProtectionManager.h" />
-    <ClInclude Include="media\MediaEngineWrapper.h" />
-    <ClInclude Include="media\MediaFoundationHelpers.h" />
+    <ClInclude Include="EmeFactory.h" />
+    <ClInclude Include="MediaEnginePlayer.h" />
+    <ClInclude Include="MediaFoundationHelpers.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="TestContent.h" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -130,16 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
-    <ClCompile Include="media\CdmMediaSource.cpp" />
-    <ClCompile Include="media\eme\CdmConfigurationProperties.cpp" />
-    <ClCompile Include="media\eme\EmeFactory.cpp" />
-    <ClCompile Include="media\eme\MediaKeys.cpp" />
-    <ClCompile Include="media\eme\MediaKeySession.cpp" />
-    <ClCompile Include="media\eme\MediaKeySystemAccess.cpp" />
-    <ClCompile Include="media\eme\MediaKeySystemConfiguration.cpp" />
-    <ClCompile Include="media\MediaEngineExtension.cpp" />
-    <ClCompile Include="media\MediaEngineProtectionManager.cpp" />
-    <ClCompile Include="media\MediaEngineWrapper.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

@@ -3,76 +3,12 @@
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="media\MediaEngineExtension.cpp">
-      <Filter>media</Filter>
-    </ClCompile>
-    <ClCompile Include="media\MediaEngineWrapper.cpp">
-      <Filter>media</Filter>
-    </ClCompile>
-    <ClCompile Include="media\CdmMediaSource.cpp">
-      <Filter>media</Filter>
-    </ClCompile>
-    <ClCompile Include="media\MediaEngineProtectionManager.cpp">
-      <Filter>media</Filter>
-    </ClCompile>
-    <ClCompile Include="media\eme\EmeFactory.cpp">
-      <Filter>media\eme</Filter>
-    </ClCompile>
-    <ClCompile Include="media\eme\MediaKeySystemAccess.cpp">
-      <Filter>media\eme</Filter>
-    </ClCompile>
-    <ClCompile Include="media\eme\MediaKeySystemConfiguration.cpp">
-      <Filter>media\eme</Filter>
-    </ClCompile>
-    <ClCompile Include="media\eme\MediaKeys.cpp">
-      <Filter>media\eme</Filter>
-    </ClCompile>
-    <ClCompile Include="media\eme\MediaKeySession.cpp">
-      <Filter>media\eme</Filter>
-    </ClCompile>
-    <ClCompile Include="media\eme\CdmConfigurationProperties.cpp">
-      <Filter>media\eme</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="media\MediaEngineExtension.h">
-      <Filter>media</Filter>
-    </ClInclude>
-    <ClInclude Include="media\MediaEngineWrapper.h">
-      <Filter>media</Filter>
-    </ClInclude>
-    <ClInclude Include="media\MediaFoundationHelpers.h">
-      <Filter>media</Filter>
-    </ClInclude>
-    <ClInclude Include="media\CdmMediaSource.h">
-      <Filter>media</Filter>
-    </ClInclude>
-    <ClInclude Include="media\MediaEngineProtectionManager.h">
-      <Filter>media</Filter>
-    </ClInclude>
-    <ClInclude Include="media\MediaEngineProtectedContentInterfaces.h">
-      <Filter>media</Filter>
-    </ClInclude>
-    <ClInclude Include="media\eme\EmeFactory.h">
-      <Filter>media\eme</Filter>
-    </ClInclude>
-    <ClInclude Include="media\eme\MediaKeySystemAccess.h">
-      <Filter>media\eme</Filter>
-    </ClInclude>
-    <ClInclude Include="media\eme\MediaKeySystemConfiguration.h">
-      <Filter>media\eme</Filter>
-    </ClInclude>
-    <ClInclude Include="media\eme\MediaKeys.h">
-      <Filter>media\eme</Filter>
-    </ClInclude>
-    <ClInclude Include="media\eme\MediaKeySession.h">
-      <Filter>media\eme</Filter>
-    </ClInclude>
-    <ClInclude Include="media\eme\CdmConfigurationProperties.h">
-      <Filter>media\eme</Filter>
-    </ClInclude>
-    <ClInclude Include="TestContent.h" />
+    <ClInclude Include="EmeFactory.h" />
+    <ClInclude Include="MediaEnginePlayer.h" />
+    <ClInclude Include="MediaFoundationHelpers.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Wide310x150Logo.scale-200.png">
