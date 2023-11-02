@@ -99,7 +99,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="EmeFactory.h" />
     <ClInclude Include="MediaEnginePlayer.h" />
     <ClInclude Include="MediaFoundationHelpers.h" />
     <ClInclude Include="pch.h" />

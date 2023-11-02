@@ -2,7 +2,9 @@
 // Licensed under the MIT License.
 
 #include "pch.h"
-#include "EmeFactory.h"
+
+#include "..\..\ContentDecryptionModule01\ContentDecryption.h"
+
 #include "MediaEnginePlayer.h"
 #include "MediaFoundationHelpers.h"
 
@@ -48,7 +50,7 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
     winrt::com_ptr<media::MediaEnginePlayer> m_Player;
 
     // EME media members
-    std::shared_ptr<media::eme::MediaKeySession> m_MediaKeySession;
+    std::shared_ptr<Eme::MediaKeySession> m_MediaKeySession;
 
     // Composition members
     mutable wil::critical_section m_compositionLock;
@@ -85,9 +87,9 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
         winrt::com_ptr<App> m_Owner;
     };
 
-    void HandleKeySessionMessage(MF_MEDIAKEYSESSION_MESSAGETYPE Type, gsl::span<uint8_t> Data, LPCWSTR Location)
+    void HandleKeySessionMessage(MF_MEDIAKEYSESSION_MESSAGETYPE Type, std::vector<uint8_t> const& Data, std::wstring const& Location)
     {
-        TRACE(L"Type %hs, Data.size() %zu, Location \"%ls\"\n", ToString(Type).c_str(), Data.size(), Location);
+        TRACE(L"Type %hs, Data.size() %zu, Location \"%ls\"\n", ToString(Type).c_str(), Data.size(), Location.c_str());
 
         // Parse challenge value and request headers from key message
         winrt::hstring messageString{ reinterpret_cast<wchar_t*>(const_cast<BYTE*>(Data.data())), static_cast<winrt::hstring::size_type>(Data.size() / sizeof(wchar_t)) };
@@ -147,36 +149,36 @@ struct App : implements<App, IFrameworkViewSource, IFrameworkView>
         TRACE(L"Type %hs, Response.Length() %u\n", ToString(Type).c_str(), Response.Length());
 
         // Pass response data to update() method on the MediaKeySession
-        m_MediaKeySession->update(gsl::span<uint8_t>(Response.data(), Response.Length()));
+        m_MediaKeySession->Update(std::vector<uint8_t>(Response.data(), Response.data() + Response.Length()));
     }
     void InitializePlayback()
     {
         TRACE(L"...\n");
 
         // Setup EME
-        media::eme::EmeFactoryConfiguration Configuration { };
+        Eme::FactoryConfiguration Configuration { };
         // Use the local cache folder which is not backed up / synced to the cloud for CDM storage
-        Configuration.storagePath = Windows::Storage::ApplicationData::Current().LocalCacheFolder().Path().c_str();
-        media::eme::EmeFactory EmeFactory(Configuration);
+        Configuration.StoragePath = Windows::Storage::ApplicationData::Current().LocalCacheFolder().Path().c_str();
+        Eme::Factory EmeFactory(Configuration);
         
         // Request access to the Playready key system.
         // This is equivalent to the following Javascript EME call:
         // Navigator.requestMediaKeySystemAccess("com.microsoft.playready.recommendation", [{ initDataTypes: ['cenc'], persistentState: 'optional', distinctiveIdentifier: 'required'])
-        std::vector<media::eme::MediaKeySystemConfiguration> MediaKeySystemConfigurationVector(1);
+        std::vector<Eme::MediaKeySystemConfiguration> MediaKeySystemConfigurationVector(1);
         {
             auto& MediaKeySystemConfiguration = MediaKeySystemConfigurationVector[0];
-            MediaKeySystemConfiguration.m_initDataTypes.emplace_back(L"cenc");
-            MediaKeySystemConfiguration.m_persistentStateRequirement = MF_MEDIAKEYS_REQUIREMENT_OPTIONAL;
-            MediaKeySystemConfiguration.m_distinctiveIdRequirement = MF_MEDIAKEYS_REQUIREMENT_REQUIRED;
+            MediaKeySystemConfiguration.InitDataTypeVector.emplace_back(L"cenc");
+            MediaKeySystemConfiguration.PersistentState = MF_MEDIAKEYS_REQUIREMENT_OPTIONAL;
+            MediaKeySystemConfiguration.DistinctiveIdentifier = MF_MEDIAKEYS_REQUIREMENT_REQUIRED;
         }
-        auto const KeySystemAccess = EmeFactory.requestMediaKeySystemAccess(L"com.microsoft.playready.recommendation", MediaKeySystemConfigurationVector);
+        auto const KeySystemAccess = EmeFactory.RequestMediaKeySystemAccess(L"com.microsoft.playready.recommendation", MediaKeySystemConfigurationVector);
         THROW_HR_IF_MSG(MF_E_UNSUPPORTED_SERVICE, !KeySystemAccess, "Key system configuration not supported.");
 
         // Create MediaKeys, MediaKeySession and setup the onmessage callback on the session (to handle license acquisition requests)
-        auto const MediaKeys = KeySystemAccess->createMediaKeys();
-        m_MediaKeySession = MediaKeys->createSession();
-        m_MediaKeySession->onmessage([&] (MF_MEDIAKEYSESSION_MESSAGETYPE Type, gsl::span<uint8_t> Data, LPCWSTR Location) { HandleKeySessionMessage(Type, Data, Location); });
-        m_MediaKeySession->generateRequest(L"cenc", std::vector<uint8_t> { g_InitializationData, g_InitializationData + std::size(g_InitializationData) });
+        auto const MediaKeys = KeySystemAccess->CreateMediaKeys();
+        m_MediaKeySession = MediaKeys->CreateSession();
+        m_MediaKeySession->OnMessage = [&] (MF_MEDIAKEYSESSION_MESSAGETYPE Type, std::vector<uint8_t> const& Data, std::wstring const& Location) { HandleKeySessionMessage(Type, Data, Location); };
+        m_MediaKeySession->GenerateRequest(L"cenc", std::vector<uint8_t> { g_InitializationData, g_InitializationData + std::size(g_InitializationData) });
 
         // Create a source resolver to create an IMFMediaSource for the content URL.
         // This will create an instance of an inbuilt OS media source for playback.

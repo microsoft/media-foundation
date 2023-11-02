@@ -3,12 +3,13 @@
 
 #pragma once
 
-#include "EmeFactory.h"
+#include "..\..\ContentDecryptionModule01\ContentDecryption.h"
+
 #include "MediaFoundationHelpers.h"
 
 inline std::string ToString(MF_MEDIA_ENGINE_EVENT Value)
 {
-    static std::pair<MF_MEDIA_ENGINE_EVENT, char const*> constexpr const g_MessageTypes[]
+    static std::pair<MF_MEDIA_ENGINE_EVENT, char const* const> constexpr const g_Items[]
     {
         #define IDENFITIER(Name) std::make_pair(Name, #Name),
         IDENFITIER(MF_MEDIA_ENGINE_EVENT_LOADSTART)
@@ -52,7 +53,7 @@ inline std::string ToString(MF_MEDIA_ENGINE_EVENT Value)
         IDENFITIER(MF_MEDIA_ENGINE_EVENT_AUDIOENDPOINTCHANGE)
         #undef IDENFITIER
     };
-    return ToString(g_MessageTypes, Value);
+    return ToString(g_Items, Value);
 }
 
 namespace media
@@ -145,8 +146,8 @@ private:
 class MediaEngineProtectionManager : public winrt::implements<MediaEngineProtectionManager, IMFContentProtectionManager, winrt::Windows::Media::Protection::IMediaProtectionManager> 
 {
 public:
-    MediaEngineProtectionManager(std::shared_ptr<eme::MediaKeys> const& mediaKeys) :
-        m_ContentDecryptionModule(mediaKeys->m_ContentDecryptionModule)
+    MediaEngineProtectionManager(std::shared_ptr<Eme::MediaKeys> const& mediaKeys) :
+        m_ContentDecryptionModule(mediaKeys->ContentDecryptionModule)
     {
         // Use the PMP server from the CDM - this ensures that the media engine uses the same protected process as the CDM
         auto const cdmServices = m_ContentDecryptionModule.query<IMFGetService>();
@@ -258,7 +259,7 @@ public:
 class MediaEnginePlayer : public winrt::implements<MediaEnginePlayer, IUnknown>
 {
 public:
-    MediaEnginePlayer(IMediaEnginePlayerSite* Site, IMFMediaSource* mediaSource, std::shared_ptr<eme::MediaKeys> mediaKeys) : 
+    MediaEnginePlayer(IMediaEnginePlayerSite* Site, IMFMediaSource* mediaSource, std::shared_ptr<Eme::MediaKeys> mediaKeys) : 
         m_Site(Site)
     {
         TRACE(L"...\n");
@@ -266,7 +267,7 @@ public:
         Initialize(mediaSource, mediaKeys);
     }
 
-    void Initialize(IMFMediaSource* mediaSource, std::shared_ptr<eme::MediaKeys> mediaKeys)
+    void Initialize(IMFMediaSource* mediaSource, std::shared_ptr<Eme::MediaKeys> mediaKeys)
     {
         RunSyncInMTA([&]()
         {
@@ -432,7 +433,7 @@ public:
         d3d11DeviceContext.query<ID3D11Multithread>()->SetMultithreadProtected(TRUE);
         THROW_IF_FAILED(m_dxgiDeviceManager->ResetDevice(d3d11Device.get(), m_deviceResetToken));
     }
-    void CreateMediaEngine(wil::com_ptr<IMFMediaSource> const& MediaSource, std::shared_ptr<eme::MediaKeys> mediaKeys)
+    void CreateMediaEngine(wil::com_ptr<IMFMediaSource> const& MediaSource, std::shared_ptr<Eme::MediaKeys> mediaKeys)
     {
         WI_ASSERT(MediaSource);
 
@@ -456,7 +457,7 @@ public:
 
         wil::com_ptr<IMFMediaSource> ExtensionMediaSource;
         if(mediaKeys)
-            ExtensionMediaSource = winrt::make_self<media::InputTrustAuthorityMediaSource>(mediaKeys, MediaSource).get(); // Also exposes an IMFTrustedInput to the pipeline
+            ExtensionMediaSource = winrt::make_self<InputTrustAuthorityMediaSource>(MediaSource, mediaKeys->ContentDecryptionModule).get(); // Also exposes an IMFTrustedInput to the pipeline
         else
             ExtensionMediaSource = MediaSource; // Set the app-provided media source directly on the media engine extension
         m_Extension = winrt::make_self<MediaEngineExtension>(ExtensionMediaSource);

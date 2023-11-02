@@ -6,7 +6,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="EmeFactory.h" />
     <ClInclude Include="MediaEnginePlayer.h" />
     <ClInclude Include="MediaFoundationHelpers.h" />
   </ItemGroup>
