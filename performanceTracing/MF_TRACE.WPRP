@@ -521,6 +521,10 @@
         <Keyword Value="0x0000400000000000"/>
       </CaptureStateOnSave>
     </EventProvider>
+    <EventProvider Id="EventProvider_Microsoft-Windows-MediaFoundation-FFmpegInterop" Name="3D64F3FC-1826-4F56-9688-AD139DAF7B1A" />
+    <EventProvider Id="EventProvider_Microsoft-Windows-MediaFoundation-WME-SourceAppService" Name="643B0C79-A027-4047-8E92-122DA761DD82" />
+    <EventProvider Id="EventProvider_Microsoft-Windows-MediaFoundation-WME-FFmpegDecoderMFT" Name="C7382102-BCF6-48C3-80C6-38F7FA228A9A" />
+    <EventProvider Id="EventProvider_Microsoft-Windows-MediaFoundation-WME-DecoderAppService" Name="5E0349B5-4352-489A-8518-01D4BA3CC235" />
 
     <!-- Profiles -->
     <Profile Id="MediaPerformance.Verbose.File" LoggingMode="File" Name="MediaPerformance" DetailLevel="Verbose" Description="WindowsXRay FULL_TH_WPP Power and Performance">
@@ -656,6 +660,10 @@
             <EventProviderId Value="Edge_Internal_TraceLogging" />
             <EventProviderId Value="Edge_WebView_TraceLogging" />
             <EventProviderId Value="Media_Platform_TraceLogging"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-FFmpegInterop" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-WME-SourceAppService" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-WME-FFmpegDecoderMFT" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-WME-DecoderAppService" />
           </EventProviders>
         </EventCollectorId>
         
@@ -801,6 +809,10 @@
             <EventProviderId Value="Edge_Internal_TraceLogging" />
             <EventProviderId Value="Edge_WebView_TraceLogging" />
             <EventProviderId Value="Media_Platform_TraceLogging"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-FFmpegInterop" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-WME-SourceAppService" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-WME-FFmpegDecoderMFT" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-WME-DecoderAppService" />
           </EventProviders>
         </EventCollectorId>
         
@@ -858,6 +870,10 @@
             <EventProviderId Value="Edge_Internal_TraceLogging" />
             <EventProviderId Value="Edge_WebView_TraceLogging" />
             <EventProviderId Value="Media_Platform_TraceLogging"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-FFmpegInterop" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-WME-SourceAppService" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-WME-FFmpegDecoderMFT" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-WME-DecoderAppService" />
           </EventProviders>
         </EventCollectorId>
       </Collectors>
@@ -908,6 +924,10 @@
             <EventProviderId Value="Edge_Internal_TraceLogging" />
             <EventProviderId Value="Edge_WebView_TraceLogging" />
             <EventProviderId Value="Media_Platform_TraceLogging"/>
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-FFmpegInterop" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-WME-SourceAppService" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-WME-FFmpegDecoderMFT" />
+            <EventProviderId Value="EventProvider_Microsoft-Windows-MediaFoundation-WME-DecoderAppService" />
           </EventProviders>
         </EventCollectorId>
       </Collectors>
