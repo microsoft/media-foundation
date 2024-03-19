@@ -2,7 +2,24 @@
 // Licensed under the MIT License.
 
 #pragma once
+
+#include <functional>
+#include <memory>
+#include <string>
+#include <vector>
+#include <tuple>
+#include <array>
+
 #include <windows.h>
+
+#include <d3d11_4.h>
+#include <Audioclient.h>
+
+#include <mfapi.h>
+#include <mferror.h>
+#include <mfmediaengine.h>
+#include <mfidl.h>
+#include <mfcontentdecryptionmodule.h>
 
 // Include ABI composition headers for interop with DCOMP surface handle from MediaEngine
 #include <windows.ui.composition.h>
@@ -26,28 +43,16 @@
 #include <winrt/Windows.Security.Cryptography.h>
 #include <winrt/Windows.ApplicationModel.h>
 
-// Direct3D
-#include <d3d11.h>
-
 // Windows Implementation Library
 #include <wil/com.h>
 #include <wil/resource.h>
 #include <wil/result_macros.h>
 
-// MediaFoundation headers
-#include <mfapi.h>
-#include <mferror.h>
-#include <mfmediaengine.h>
-#include <mfidl.h>
-#include <mfcontentdecryptionmodule.h>
-
-// STL headers
-#include <functional>
-#include <memory>
-#include <string>
-#include <vector>
-#include <tuple>
-#include <array>
-
 // GSL (C++ Guidelines Support Library)
 #include <gsl/span>
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma warning(disable: 4458) // declaration of ... hides class member
+
+#include "..\..\ContentDecryptionModule01\Helper.h"
