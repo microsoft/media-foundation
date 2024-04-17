@@ -26,7 +26,8 @@ strategy:
       BuildConfiguration: Debug
 
 pool:
-  name: $(AgentPool)
+  vmImage: 'windows-latest'
+  #name: $(AgentPool)
 #  demands: agent.osversion -equals 10.0.17763
 
 # CI trigger
