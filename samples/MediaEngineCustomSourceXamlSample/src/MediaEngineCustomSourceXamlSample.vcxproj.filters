@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Natvis Include="$(MSBuildThisFileDirectory)..\..\natvis\wil.natvis" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="MediaEngineExtension.cpp">
+      <Filter>Media</Filter>
+    </ClCompile>
+    <ClCompile Include="MediaEngineNotifyImpl.cpp">
+      <Filter>Media</Filter>
+    </ClCompile>
+    <ClCompile Include="MediaEngineWrapper.cpp">
+      <Filter>Media</Filter>
+    </ClCompile>
+    <ClCompile Include="MediaFoundationSourceWrapper.cpp">
+      <Filter>Media</Filter>
+    </ClCompile>
+    <ClCompile Include="MediaFoundationStreamWrapper.cpp">
+      <Filter>Media</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="MediaFoundationStreamWrapper.h">
+      <Filter>Media</Filter>
+    </ClInclude>
+    <ClInclude Include="MediaEngineExtension.h">
+      <Filter>Media</Filter>
+    </ClInclude>
+    <ClInclude Include="MediaEngineNotifyImpl.h">
+      <Filter>Media</Filter>
+    </ClInclude>
+    <ClInclude Include="MediaEngineWrapper.h">
+      <Filter>Media</Filter>
+    </ClInclude>
+    <ClInclude Include="MediaFoundationHelpers.h">
+      <Filter>Media</Filter>
+    </ClInclude>
+    <ClInclude Include="MediaFoundationSourceWrapper.h">
+      <Filter>Media</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="..\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainWindow.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Media">
+      <UniqueIdentifier>{5ab0a63a-5596-450d-a2be-e2b713d3d677}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{cff40587-230e-4e37-b528-993f1ddf47ef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\SplashScreen.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
