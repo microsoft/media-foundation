@@ -1,206 +1,206 @@
 jobs:
 
   - job: A
-resources:
+    resources:
 
-- repo: self
-  clean: true
-
-variables:
-#  SamplesBin: SamplesBin
-#  WINDOWS_WINMD: C:\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd
-  WindowsTargetPlatformVersion: 10.0.19041.0
-#  For 19H1, WindowsTargetPlatformVersion: 10.0.18362.0
-
-strategy:
-  maxParallel: 8
-  matrix:
-    Release_x64:
-      BuildPlatform: x64
-      BuildConfiguration: Release
-    Debug_x64:
-      BuildPlatform: x64
-      BuildConfiguration: Debug
-    Release_x86:
-      BuildPlatform: x86
-      BuildConfiguration: Release
-    Debug_x86:
-      BuildPlatform: x86
-      BuildConfiguration: Debug
-
-pool:
-  vmImage: 'windows-2019'
-#  demands: agent.osversion -equals 10.0.17763
-
-# CI trigger
-trigger:
-  branches:
-    include:
-    - master
-  paths:
-    exclude:
-    - Tools
-
-# PR validation trigger
-pr:
-  branches:
-    include:
-    - master
-  paths:
-    exclude:
-    - Tools
-
-steps: 
-  - task: PowerShell@2
-    displayName: 'Check SDK Version 18362 is present'
-    inputs:
-      targetType: inline
-      script: dir "${ENV:programfiles(x86)}\windows Kits\10\include\10.0.18362.0\"
-    
-  - task: DotNetCoreInstaller@0
-    displayName: 'Use .NET Core sdk 2.1.300'
-    inputs:
-      version: 2.1.300
-    condition: succeededOrFailed()
-
-  - task: NuGetToolInstaller@0
-    displayName: 'Use NuGet 4.9.2'
-    inputs:
-      versionSpec: 4.9.2
-    condition: succeededOrFailed()
-
-  - task: 333b11bd-d341-40d9-afcf-b32d5ce6f23b@2
-    displayName: 'NuGet restore'
-    condition: succeededOrFailed()
-
-  - task: VSBuild@1
-    displayName: 'Build MediaEngineUWP Sample'
-    inputs:
-      solution: samples/MediaEngineUWPSample/src/MediaEngineUWPSample.sln
-      vsVersion: 16.0
-      msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\MediaEngineUWP\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
-      platform: '$(BuildPlatform)'
-      configuration: '$(BuildConfiguration)'
+    - repo: self
       clean: true
-      msbuildArchitecture: x64
-      createLogFile: true
-    condition: succeededOrFailed()
 
-  - task: VSBuild@1
-    displayName: 'Build MediaEngineEMEUWP Sample'
-    inputs:
-      solution: samples/MediaEngineEMEUWPSample/src/MediaEngineEMEUWPSample.sln
-      vsVersion: 16.0
-      msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\MediaEngineEMEUWP\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
-      platform: '$(BuildPlatform)'
-      configuration: '$(BuildConfiguration)'
-      clean: true
-      msbuildArchitecture: x64
-      createLogFile: true
-    condition: succeededOrFailed()
+    variables:
+    #  SamplesBin: SamplesBin
+    #  WINDOWS_WINMD: C:\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd
+      WindowsTargetPlatformVersion: 10.0.19041.0
+    #  For 19H1, WindowsTargetPlatformVersion: 10.0.18362.0
 
-  - task: VSBuild@1
-    displayName: 'Build MediaEngineDCompWin32 Sample'
-    inputs:
-      solution: samples/MediaEngineDCompWin32Sample/src/MediaEngineDCompWin32Sample.sln
-      vsVersion: 16.0
-      msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\MediaEngineDCompWin32Sample\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
-      platform: '$(BuildPlatform)'
-      configuration: '$(BuildConfiguration)'
-      clean: true
-      msbuildArchitecture: x64
-      createLogFile: true
-    condition: succeededOrFailed()
+    strategy:
+      maxParallel: 8
+      matrix:
+        Release_x64:
+          BuildPlatform: x64
+          BuildConfiguration: Release
+        Debug_x64:
+          BuildPlatform: x64
+          BuildConfiguration: Debug
+        Release_x86:
+          BuildPlatform: x86
+          BuildConfiguration: Release
+        Debug_x86:
+          BuildPlatform: x86
+          BuildConfiguration: Debug
 
-  - task: VSBuild@1
-    displayName: 'Build storeCDM Sample'
-    inputs:
-      solution: samples/storecdm/clearkeyStoreCDM/clearkeyStoreCDM.sln
-      vsVersion: 16.0
-      msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\clearkeyStoreCDM\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
-      platform: '$(BuildPlatform)'
-      configuration: '$(BuildConfiguration)'
-      clean: true
-      msbuildArchitecture: x64
-      createLogFile: true
-    condition: succeededOrFailed()
+    pool:
+      vmImage: 'windows-2019'
+    #  demands: agent.osversion -equals 10.0.17763
 
-  - task: CopyFiles@2
-    inputs:
-      targetFolder: '$(Build.ArtifactStagingDirectory)\$(BuildPlatform)\$(BuildConfiguration)\'
-      sourceFolder: '$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\'
-      Contents: |
-        **\MediaEngineUWP\**
-        **\MediaEngineDCompWin32Sample\**
-        **\MediaEngineEMEUWP\**  
-    condition: succeededOrFailed()
+    # CI trigger
+    trigger:
+      branches:
+        include:
+        - master
+      paths:
+        exclude:
+        - Tools
 
-  - task: PublishBuildArtifacts@1
-    displayName: 'Publish Artifact: Samples'
-    inputs:
-      pathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      artifactName: MFPublicSamples
-    condition: succeededOrFailed()
+    # PR validation trigger
+    pr:
+      branches:
+        include:
+        - master
+      paths:
+        exclude:
+        - Tools
+
+    steps: 
+      - task: PowerShell@2
+        displayName: 'Check SDK Version 18362 is present'
+        inputs:
+          targetType: inline
+          script: dir "${ENV:programfiles(x86)}\windows Kits\10\include\10.0.18362.0\"
+        
+      - task: DotNetCoreInstaller@0
+        displayName: 'Use .NET Core sdk 2.1.300'
+        inputs:
+          version: 2.1.300
+        condition: succeededOrFailed()
+
+      - task: NuGetToolInstaller@0
+        displayName: 'Use NuGet 4.9.2'
+        inputs:
+          versionSpec: 4.9.2
+        condition: succeededOrFailed()
+
+      - task: 333b11bd-d341-40d9-afcf-b32d5ce6f23b@2
+        displayName: 'NuGet restore'
+        condition: succeededOrFailed()
+
+      - task: VSBuild@1
+        displayName: 'Build MediaEngineUWP Sample'
+        inputs:
+          solution: samples/MediaEngineUWPSample/src/MediaEngineUWPSample.sln
+          vsVersion: 16.0
+          msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\MediaEngineUWP\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
+          platform: '$(BuildPlatform)'
+          configuration: '$(BuildConfiguration)'
+          clean: true
+          msbuildArchitecture: x64
+          createLogFile: true
+        condition: succeededOrFailed()
+
+      - task: VSBuild@1
+        displayName: 'Build MediaEngineEMEUWP Sample'
+        inputs:
+          solution: samples/MediaEngineEMEUWPSample/src/MediaEngineEMEUWPSample.sln
+          vsVersion: 16.0
+          msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\MediaEngineEMEUWP\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
+          platform: '$(BuildPlatform)'
+          configuration: '$(BuildConfiguration)'
+          clean: true
+          msbuildArchitecture: x64
+          createLogFile: true
+        condition: succeededOrFailed()
+
+      - task: VSBuild@1
+        displayName: 'Build MediaEngineDCompWin32 Sample'
+        inputs:
+          solution: samples/MediaEngineDCompWin32Sample/src/MediaEngineDCompWin32Sample.sln
+          vsVersion: 16.0
+          msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\MediaEngineDCompWin32Sample\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
+          platform: '$(BuildPlatform)'
+          configuration: '$(BuildConfiguration)'
+          clean: true
+          msbuildArchitecture: x64
+          createLogFile: true
+        condition: succeededOrFailed()
+
+      - task: VSBuild@1
+        displayName: 'Build storeCDM Sample'
+        inputs:
+          solution: samples/storecdm/clearkeyStoreCDM/clearkeyStoreCDM.sln
+          vsVersion: 16.0
+          msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\clearkeyStoreCDM\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
+          platform: '$(BuildPlatform)'
+          configuration: '$(BuildConfiguration)'
+          clean: true
+          msbuildArchitecture: x64
+          createLogFile: true
+        condition: succeededOrFailed()
+
+      - task: CopyFiles@2
+        inputs:
+          targetFolder: '$(Build.ArtifactStagingDirectory)\$(BuildPlatform)\$(BuildConfiguration)\'
+          sourceFolder: '$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\'
+          Contents: |
+            **\MediaEngineUWP\**
+            **\MediaEngineDCompWin32Sample\**
+            **\MediaEngineEMEUWP\**  
+        condition: succeededOrFailed()
+
+      - task: PublishBuildArtifacts@1
+        displayName: 'Publish Artifact: Samples'
+        inputs:
+          pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+          artifactName: MFPublicSamples
+        condition: succeededOrFailed()
     
   - job: B
-resources:
+    resources:
 
-- repo: self
-  clean: true
-
-variables:
-#  SamplesBin: SamplesBin
-#  WINDOWS_WINMD: C:\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd
-  WindowsTargetPlatformVersion: 10.0.19041.0
-#  For 19H1, WindowsTargetPlatformVersion: 10.0.18362.0
-
-strategy:
-  maxParallel: 8
-  matrix:
-    Release_x64:
-      BuildPlatform: x64
-      BuildConfiguration: Release
-    Debug_x64:
-      BuildPlatform: x64
-      BuildConfiguration: Debug
-    Release_x86:
-      BuildPlatform: x86
-      BuildConfiguration: Release
-    Debug_x86:
-      BuildPlatform: x86
-      BuildConfiguration: Debug
-
-pool:
-  vmImage: 'windows-latest'
-#  demands: agent.osversion -equals 10.0.17763
-
-# CI trigger
-trigger:
-  branches:
-    include:
-    - master
-  paths:
-    exclude:
-    - Tools
-
-# PR validation trigger
-pr:
-  branches:
-    include:
-    - master
-  paths:
-    exclude:
-    - Tools
-steps: 
-  - task: VSBuild@1
-    displayName: 'Build MediaEngineCustomSourceXaml Sample'
-    inputs:
-      solution: samples/MediaEngineCustomSourceXamlSample/MediaEngineCustomSourceXamlSample.sln
-      vsVersion: 16.0
-      msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\MediaEngineCustomSourceXamlSample\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
-      platform: '$(BuildPlatform)'
-      configuration: '$(BuildConfiguration)'
+    - repo: self
       clean: true
-      msbuildArchitecture: x64
-      createLogFile: true
-    condition: succeededOrFailed()
+
+    variables:
+    #  SamplesBin: SamplesBin
+    #  WINDOWS_WINMD: C:\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.18362.0\Windows.winmd
+      WindowsTargetPlatformVersion: 10.0.19041.0
+    #  For 19H1, WindowsTargetPlatformVersion: 10.0.18362.0
+
+    strategy:
+      maxParallel: 8
+      matrix:
+        Release_x64:
+          BuildPlatform: x64
+          BuildConfiguration: Release
+        Debug_x64:
+          BuildPlatform: x64
+          BuildConfiguration: Debug
+        Release_x86:
+          BuildPlatform: x86
+          BuildConfiguration: Release
+        Debug_x86:
+          BuildPlatform: x86
+          BuildConfiguration: Debug
+
+    pool:
+      vmImage: 'windows-latest'
+    #  demands: agent.osversion -equals 10.0.17763
+
+    # CI trigger
+    trigger:
+      branches:
+        include:
+        - master
+      paths:
+        exclude:
+        - Tools
+
+    # PR validation trigger
+    pr:
+      branches:
+        include:
+        - master
+      paths:
+        exclude:
+        - Tools
+    steps: 
+      - task: VSBuild@1
+        displayName: 'Build MediaEngineCustomSourceXaml Sample'
+        inputs:
+          solution: samples/MediaEngineCustomSourceXamlSample/MediaEngineCustomSourceXamlSample.sln
+          vsVersion: 16.0
+          msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\MediaEngineCustomSourceXamlSample\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
+          platform: '$(BuildPlatform)'
+          configuration: '$(BuildConfiguration)'
+          clean: true
+          msbuildArchitecture: x64
+          createLogFile: true
+        condition: succeededOrFailed()
