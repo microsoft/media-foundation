@@ -108,8 +108,8 @@ steps:
       msbuildArchitecture: x64
       createLogFile: true
     condition: succeededOrFailed()
-    
-      - task: VSBuild@1
+
+  - task: VSBuild@1
     displayName: 'Build MediaEngineCustomSourceXaml Sample'
     inputs:
       solution: samples/MediaEngineCustomSourceXamlSample/MediaEngineCustomSourceXamlSample.sln
@@ -121,7 +121,7 @@ steps:
       msbuildArchitecture: x64
       createLogFile: true
     condition: succeededOrFailed()
-    
+
   - task: VSBuild@1
     displayName: 'Build storeCDM Sample'
     inputs:
