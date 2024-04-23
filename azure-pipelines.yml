@@ -26,7 +26,7 @@ strategy:
       BuildConfiguration: Debug
 
 pool:
-  name: $(AgentPool)
+  vmImage: 'windows-2019'
 #  demands: agent.osversion -equals 10.0.17763
 
 # CI trigger
@@ -102,6 +102,19 @@ steps:
       solution: samples/MediaEngineDCompWin32Sample/src/MediaEngineDCompWin32Sample.sln
       vsVersion: 16.0
       msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\MediaEngineDCompWin32Sample\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
+      platform: '$(BuildPlatform)'
+      configuration: '$(BuildConfiguration)'
+      clean: true
+      msbuildArchitecture: x64
+      createLogFile: true
+    condition: succeededOrFailed()
+    
+      - task: VSBuild@1
+    displayName: 'Build MediaEngineCustomSourceXaml Sample'
+    inputs:
+      solution: samples/MediaEngineCustomSourceXamlSample/MediaEngineCustomSourceXamlSample.sln
+      vsVersion: 16.0
+      msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\MediaEngineCustomSourceXamlSample\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
       platform: '$(BuildPlatform)'
       configuration: '$(BuildConfiguration)'
       clean: true
