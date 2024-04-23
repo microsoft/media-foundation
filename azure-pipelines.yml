@@ -26,7 +26,7 @@ strategy:
       BuildConfiguration: Debug
 
 pool:
-  vm-image: 'windows-2019'
+  vmImage: 'windows-2019'
 #  demands: agent.osversion -equals 10.0.17763
 
 # CI trigger
