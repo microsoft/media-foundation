@@ -108,7 +108,20 @@ steps:
       msbuildArchitecture: x64
       createLogFile: true
     condition: succeededOrFailed()
-    
+
+  - task: VSBuild@1
+    displayName: 'Build MediaEngineCustomSourceXaml Sample'
+    inputs:
+      solution: samples/MediaEngineCustomSourceXamlSample/MediaEngineCustomSourceXamlSample.sln
+      vsVersion: 16.0
+      msbuildArgs: '-v:diag /p:OutDir=$(System.DefaultWorkingDirectory)\bin\$(BuildPlatform)\$(BuildConfiguration)\MediaEngineCustomSourceXamlSample\ /p:WindowsTargetPlatformVersion=$(WindowsTargetPlatformVersion)'
+      platform: '$(BuildPlatform)'
+      configuration: '$(BuildConfiguration)'
+      clean: true
+      msbuildArchitecture: x64
+      createLogFile: true
+    condition: succeededOrFailed()
+
   - task: VSBuild@1
     displayName: 'Build storeCDM Sample'
     inputs:
