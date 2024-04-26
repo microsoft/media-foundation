@@ -55,6 +55,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="..\readme.md" />
+    <None Include="MediaEngineCustomSourceXamlSample_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainWindow.xaml" />
