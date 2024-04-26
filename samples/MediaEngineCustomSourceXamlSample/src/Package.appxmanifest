@@ -10,7 +10,7 @@
   <Identity
     Name="MediaEngineCustomSourceXamlSample"
     Publisher="CN=daoyuanli"
-    Version="1.0.3.0" />
+    Version="1.0.4.0" />
 
   <mp:PhoneIdentity PhoneProductId="971452e0-bcc1-41a2-8ede-553fea2ccd96" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
