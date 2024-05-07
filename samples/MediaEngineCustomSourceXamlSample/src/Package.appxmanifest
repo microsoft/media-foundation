@@ -9,8 +9,8 @@
 
   <Identity
     Name="MediaEngineCustomSourceXamlSample"
-    Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
-    Version="1.0.1.0" />
+    Publisher="CN=Microsoft"
+    Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="971452e0-bcc1-41a2-8ede-553fea2ccd96" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

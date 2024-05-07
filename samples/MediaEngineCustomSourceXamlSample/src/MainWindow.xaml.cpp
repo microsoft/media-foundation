@@ -14,46 +14,19 @@ using namespace winrt::Windows::UI::Xaml;
 using namespace Microsoft::WRL;
 
 HRESULT CreateSourceReader(
-    IUnknown* unkDeviceMgr,
     LPCWSTR fileURL,
-    BOOL useSoftWareDecoder,
-    GUID colorspace,
     IMFSourceReader** reader,
     DWORD* width,
     DWORD* height)
 {
     ComPtr<IMFSourceReader> sourceReader;
-    ComPtr<IMFMediaType> partialTypeVideo;
     ComPtr<IMFMediaType> nativeMediaType;
-    ComPtr<IMFAttributes> mfAttributes;
 
-    if (unkDeviceMgr != nullptr)
-    {
-        RETURN_IF_FAILED(MFCreateAttributes(&mfAttributes, 1));
-        RETURN_IF_FAILED(mfAttributes->SetUnknown(MF_SOURCE_READER_D3D_MANAGER, unkDeviceMgr));
-        if (useSoftWareDecoder)
-        {
-            RETURN_IF_FAILED(mfAttributes->SetUINT32(MF_READWRITE_ENABLE_HARDWARE_TRANSFORMS, FALSE));
-            RETURN_IF_FAILED(mfAttributes->SetUINT32(MF_SOURCE_READER_DISABLE_DXVA, TRUE));
-        }
-        else
-        {
-            RETURN_IF_FAILED(mfAttributes->SetUINT32(MF_READWRITE_ENABLE_HARDWARE_TRANSFORMS, TRUE));
-            RETURN_IF_FAILED(mfAttributes->SetUINT32(MF_SOURCE_READER_DISABLE_DXVA, FALSE));
-        }
-    }
-    RETURN_IF_FAILED(MFCreateSourceReaderFromURL(fileURL, mfAttributes.Get(), &sourceReader));
+    RETURN_IF_FAILED(MFCreateSourceReaderFromURL(fileURL, NULL, &sourceReader));
 
     RETURN_IF_FAILED(sourceReader->GetNativeMediaType((DWORD)MF_SOURCE_READER_FIRST_VIDEO_STREAM, 0, &nativeMediaType));
     RETURN_IF_FAILED(MFGetAttributeSize(nativeMediaType.Get(), MF_MT_FRAME_SIZE, (UINT*)width, (UINT*)height));
-
-    // Set valid color space (default is MFVideoFormat_H264)
-    RETURN_IF_FAILED(MFCreateMediaType(&partialTypeVideo));
-    RETURN_IF_FAILED(partialTypeVideo->SetGUID(MF_MT_MAJOR_TYPE, MFMediaType_Video));
-    
-    RETURN_IF_FAILED(partialTypeVideo->SetGUID(MF_MT_SUBTYPE, colorspace));
-    RETURN_IF_FAILED(sourceReader->SetCurrentMediaType((DWORD)MF_SOURCE_READER_FIRST_VIDEO_STREAM, NULL, partialTypeVideo.Get()));
-    
+   
 
     *reader = sourceReader.Detach();
 
@@ -103,7 +76,7 @@ namespace winrt::MediaEngineCustomSourceXamlSample::implementation
 
         DWORD Height = 0;
         DWORD Width = 0;
-        HRESULT hr = CreateSourceReader(m_deviceMgr.Get(), MEDIA_FILE_NAME, FALSE, MFVideoFormat_NV12, &m_sourceReader, &Width, &Height);
+        HRESULT hr = CreateSourceReader(MEDIA_FILE_NAME, &m_sourceReader, &Width, &Height);
         if (S_OK != hr)
             LOG_HR_MSG(hr, "CreateSourceReader");
 
